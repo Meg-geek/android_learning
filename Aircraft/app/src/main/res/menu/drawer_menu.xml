@@ -1,0 +1,25 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+<item
+    android:id="@+id/home"
+    android:icon="@drawable/ic_home_black_24dp"
+    android:title="@string/home_menu_item_text"
+    />
+
+<item android:title="@string/company_title">
+    <menu>
+        <item
+            android:id="@+id/company_menu_item"
+            android:title="@string/company_menu_item_text" />
+        <item
+            android:id="@+id/guild_menu_item"
+            android:title="@string/guild_menu_item_text" />
+
+        <item
+            android:id="@+id/site_menu_item"
+            android:title="@string/site_menu_item_text"
+            />
+    </menu>
+</item>
+
+</menu>
