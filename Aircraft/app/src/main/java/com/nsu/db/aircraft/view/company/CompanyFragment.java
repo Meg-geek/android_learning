@@ -40,6 +40,7 @@ public class CompanyFragment extends Fragment {
             FragmentManager fragmentManager = fragmentActivity.getSupportFragmentManager();
             FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
             fragmentTransaction.replace(R.id.container_fragment, new AddCompanyFragment());
+            fragmentTransaction.addToBackStack(null);
             fragmentTransaction.commit();
         });
     }
@@ -50,6 +51,7 @@ public class CompanyFragment extends Fragment {
             FragmentManager fragmentManager = fragmentActivity.getSupportFragmentManager();
             FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
             fragmentTransaction.replace(R.id.container_fragment, new CompanyAllFragment());
+            fragmentTransaction.addToBackStack(null);
             fragmentTransaction.commit();
         });
     }

@@ -62,6 +62,7 @@ public class MainActivity extends AppCompatActivity
             fragmentManager = getSupportFragmentManager();
             fragmentTransaction = fragmentManager.beginTransaction();
             fragmentTransaction.replace(R.id.container_fragment, new HomeFragment());
+            fragmentTransaction.addToBackStack(null);
             fragmentTransaction.commit();
         }
 
@@ -69,6 +70,7 @@ public class MainActivity extends AppCompatActivity
             fragmentManager = getSupportFragmentManager();
             fragmentTransaction = fragmentManager.beginTransaction();
             fragmentTransaction.replace(R.id.container_fragment, new CompanyFragment());
+            fragmentTransaction.addToBackStack(null);
             fragmentTransaction.commit();
         }
         return true;

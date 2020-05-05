@@ -24,10 +24,27 @@
     <string name="add_company_text">Добавить предприятие</string>
     <string name="name_field">Название предприятия</string>
 
+    <!--Detail company fragment-->
+    <string name="change_company_name">Изменить название</string>
+    <string name="success_company_name_change">Название успешно изменено</string>
+    <string name="delete_company_dialog_message">Вы уверены,
+        что хотите удалить данное предприятие?</string>
+    <string name="company_success_delete">Компания успешно удалена</string>
+    <string name="company_detail_guilds">Цеха</string>
+
+
 
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
     <!--Some fragments text-->
     <string name="load_text">Загрузка…</string>
+    <string name="error_text">Что-то пошло не так…</string>
+    <string name="error_already_exist">Элемент с данным именем уже существует</string>
+    <string name="load_success">Элемент успешно добавлен</string>
+    <string name="save_changes">Сохранить</string>
+    <string name="delete_element">Удалить</string>
+    <string name="delete_dialog_title">Подтверждение удаления</string>
+    <string name="dialog_ok">Да</string>
+    <string name="dialog_cancel">Отмена</string>
 
 </resources>

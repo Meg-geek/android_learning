@@ -1,5 +1,6 @@
 package com.nsu.db.aircraft.view.company;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,6 +11,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentActivity;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import com.nsu.db.aircraft.R;
 import com.nsu.db.aircraft.api.GeneralResponse;
@@ -26,6 +30,8 @@ import retrofit2.Response;
 
 
 public class CompanyAllFragment extends Fragment {
+    private FragmentActivity fragmentActivity;
+
     private List<Company> companies;
 
     public CompanyAllFragment() {
@@ -39,8 +45,33 @@ public class CompanyAllFragment extends Fragment {
         TextView textView = view.findViewById(R.id.text_view_all_companies);
         textView.setVisibility(View.VISIBLE);
         textView.setText("Загрузка....");
+        setCompaniesListView(view);
         sendCompaniesRequest();
         return view;
+    }
+
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        fragmentActivity = (FragmentActivity) context;
+    }
+
+    private void setCompaniesListView(View view) {
+        ListView companiesView = view.findViewById(R.id.all_companies_list_view);
+        companiesView.setOnItemClickListener((parent, view1, position, id) -> {
+            if (position < 0 || position >= companies.size()) {
+                return;
+            }
+            startCompanyDetailFragment(companies.get(position));
+        });
+    }
+
+    private void startCompanyDetailFragment(Company company) {
+        FragmentManager fragmentManager = fragmentActivity.getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.container_fragment, new CompanyDetailFragment(company));
+        fragmentTransaction.addToBackStack(null);
+        fragmentTransaction.commit();
     }
 
     private void sendCompaniesRequest() {
@@ -53,14 +84,14 @@ public class CompanyAllFragment extends Fragment {
                                            Response<GeneralResponse<List<Company>>> response) {
                         if (!response.isSuccessful()) {
                             Toast.makeText(getContext(),
-                                    "Something went wrong",
+                                    R.string.error_text,
                                     Toast.LENGTH_LONG).show();
                             return;
                         }
                         GeneralResponse<List<Company>> generalResponse = response.body();
                         if (generalResponse.getStatus() != Status.OK) {
                             Toast.makeText(getContext(),
-                                    "Something went wrong",
+                                    R.string.error_text,
                                     Toast.LENGTH_LONG).show();
                             return;
                         }
@@ -71,7 +102,7 @@ public class CompanyAllFragment extends Fragment {
                     @Override
                     public void onFailure(Call<GeneralResponse<List<Company>>> call, Throwable t) {
                         Toast.makeText(getContext(),
-                                "Something went wrong",
+                                R.string.error_text,
                                 Toast.LENGTH_LONG).show();
                     }
                 });
