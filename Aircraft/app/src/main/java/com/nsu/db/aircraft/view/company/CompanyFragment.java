@@ -31,29 +31,31 @@ public class CompanyFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_company, container, false);
         setShowAllButton(view);
         setAddCompanyButton(view);
+        setShowTableButton(view);
         return view;
     }
 
     private void setAddCompanyButton(View view) {
         Button addCompanyButton = view.findViewById(R.id.button_add_company);
-        addCompanyButton.setOnClickListener(v -> {
-            FragmentManager fragmentManager = fragmentActivity.getSupportFragmentManager();
-            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-            fragmentTransaction.replace(R.id.container_fragment, new AddCompanyFragment());
-            fragmentTransaction.addToBackStack(null);
-            fragmentTransaction.commit();
-        });
+        addCompanyButton.setOnClickListener(v -> startFragment(new AddCompanyFragment()));
     }
 
     private void setShowAllButton(View view) {
         Button showAllButton = view.findViewById(R.id.button_company_show_all);
-        showAllButton.setOnClickListener(view1 -> {
-            FragmentManager fragmentManager = fragmentActivity.getSupportFragmentManager();
-            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-            fragmentTransaction.replace(R.id.container_fragment, new CompanyAllFragment());
-            fragmentTransaction.addToBackStack(null);
-            fragmentTransaction.commit();
-        });
+        showAllButton.setOnClickListener(view1 -> startFragment(new CompanyAllFragment()));
+    }
+
+    private void startFragment(Fragment fragment) {
+        FragmentManager fragmentManager = fragmentActivity.getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.container_fragment, fragment);
+        fragmentTransaction.addToBackStack(null);
+        fragmentTransaction.commit();
+    }
+
+    private void setShowTableButton(View view) {
+        Button showTableButton = view.findViewById(R.id.button_show_companies_table);
+        showTableButton.setOnClickListener(v -> startFragment(new CompanyTableFragment()));
     }
 
     @Override

@@ -25,4 +25,9 @@
         <item name="colorControlActivated">@color/green</item>
     </style>
 
+    <!--Style for tables-->
+    <style name="TablesText" parent="TextAppearance.AppCompat">
+        <item name="android:textSize">20sp</item>
+    </style>
+
 </resources>
