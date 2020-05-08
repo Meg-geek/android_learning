@@ -1,4 +1,4 @@
-package com.nsu.db.aircraft.api.model;
+package com.nsu.db.aircraft.api.model.company;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
@@ -10,7 +10,7 @@ import lombok.Setter;
 @Setter
 public class Company {
     @SerializedName("id")
-    @Expose(serialize = false)
+    @Expose
     private int id;
 
     @Expose

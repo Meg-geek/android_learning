@@ -1,7 +1,8 @@
 package com.nsu.db.aircraft.network;
 
 
-import com.nsu.db.aircraft.api.CompanyApi;
+import com.nsu.db.aircraft.api.rest.CompanyApi;
+import com.nsu.db.aircraft.api.rest.GuildApi;
 
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
@@ -36,5 +37,8 @@ public class NetworkService {
         return retrofit.create(CompanyApi.class);
     }
 
+    public GuildApi getGuildJsonApi() {
+        return retrofit.create(GuildApi.class);
+    }
 }
 
