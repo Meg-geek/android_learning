@@ -9,7 +9,7 @@
     android:paddingRight="16dp"
     android:shrinkColumns="*"
     android:stretchColumns="*"
-    tools:context=".view.company.CompanyTableFragment">
+    tools:context=".view.company.company.CompanyTableFragment">
 
 
 </TableLayout>

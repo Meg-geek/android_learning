@@ -1,4 +1,4 @@
-package com.nsu.db.aircraft.view.company;
+package com.nsu.db.aircraft.view.company.company;
 
 
 import android.content.Context;

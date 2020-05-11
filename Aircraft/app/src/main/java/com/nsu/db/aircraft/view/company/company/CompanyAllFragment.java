@@ -1,4 +1,4 @@
-package com.nsu.db.aircraft.view.company;
+package com.nsu.db.aircraft.view.company.company;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -18,7 +18,7 @@ import androidx.fragment.app.FragmentTransaction;
 import com.nsu.db.aircraft.R;
 import com.nsu.db.aircraft.api.GeneralResponse;
 import com.nsu.db.aircraft.api.Status;
-import com.nsu.db.aircraft.api.model.Company;
+import com.nsu.db.aircraft.api.model.company.Company;
 import com.nsu.db.aircraft.network.NetworkService;
 
 import java.util.ArrayList;

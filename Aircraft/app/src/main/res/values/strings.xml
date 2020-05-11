@@ -20,6 +20,15 @@
     <string name="button_add_company_text">Добавить предприятие</string>
     <string name="button_show_table_text">Посмотреть таблицу</string>
 
+    <!--Guild fragment string resources-->
+    <string name="button_show_all_guilds_text">Показать все цеха</string>
+    <string name="button_add_guild_text">Добавить цех</string>
+
+    <!--Site fragment string resources-->
+    <string name="button_show_all_sites_text">Показать все участки</string>
+    <string name="button_add_site_text">Добавить участок</string>
+
+
     <!--Add company fragment -->
     <string name="add_company_text">Добавить предприятие</string>
     <string name="name_field">Название предприятия</string>

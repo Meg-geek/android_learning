@@ -9,12 +9,15 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.google.android.material.navigation.NavigationView;
 import com.nsu.db.aircraft.R;
-import com.nsu.db.aircraft.view.company.CompanyFragment;
+import com.nsu.db.aircraft.view.company.company.CompanyFragment;
+import com.nsu.db.aircraft.view.company.guild.GuildMainFragment;
+import com.nsu.db.aircraft.view.company.site.SiteMainFragment;
 
 
 public class MainActivity extends AppCompatActivity
@@ -49,29 +52,32 @@ public class MainActivity extends AppCompatActivity
         drawerToggle.setDrawerIndicatorEnabled(true);
         drawerToggle.syncState();
 
+        startFragment(new HomeFragment());
+    }
+
+    private void startFragment(Fragment fragment){
         fragmentManager = getSupportFragmentManager();
         fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.add(R.id.container_fragment, new HomeFragment());
+        fragmentTransaction.replace(R.id.container_fragment, fragment);
+        fragmentTransaction.addToBackStack(null);
         fragmentTransaction.commit();
     }
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
         drawerLayout.closeDrawer(GravityCompat.START);
-        if (menuItem.getItemId() == R.id.home) {
-            fragmentManager = getSupportFragmentManager();
-            fragmentTransaction = fragmentManager.beginTransaction();
-            fragmentTransaction.replace(R.id.container_fragment, new HomeFragment());
-            fragmentTransaction.addToBackStack(null);
-            fragmentTransaction.commit();
-        }
-
-        if (menuItem.getItemId() == R.id.company_menu_item) {
-            fragmentManager = getSupportFragmentManager();
-            fragmentTransaction = fragmentManager.beginTransaction();
-            fragmentTransaction.replace(R.id.container_fragment, new CompanyFragment());
-            fragmentTransaction.addToBackStack(null);
-            fragmentTransaction.commit();
+        switch (menuItem.getItemId()){
+            case R.id.company_menu_item:
+                startFragment(new CompanyFragment());
+                break;
+            case R.id.guild_menu_item:
+                startFragment(new GuildMainFragment());
+                break;
+            case R.id.site_menu_item:
+                startFragment(new SiteMainFragment());
+                break;
+            default:
+                startFragment(new HomeFragment());
         }
         return true;
     }

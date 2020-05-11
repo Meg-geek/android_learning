@@ -1,4 +1,4 @@
-package com.nsu.db.aircraft.view.company;
+package com.nsu.db.aircraft.view.company.company;
 
 import android.app.Activity;
 import android.content.Context;
@@ -21,7 +21,7 @@ import com.google.android.material.textfield.TextInputLayout;
 import com.nsu.db.aircraft.R;
 import com.nsu.db.aircraft.api.GeneralResponse;
 import com.nsu.db.aircraft.api.Status;
-import com.nsu.db.aircraft.api.model.Company;
+import com.nsu.db.aircraft.api.model.company.Company;
 import com.nsu.db.aircraft.network.NetworkService;
 
 import retrofit2.Call;
