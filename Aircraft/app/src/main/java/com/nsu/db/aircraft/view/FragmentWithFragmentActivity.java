@@ -1,6 +1,8 @@
 package com.nsu.db.aircraft.view;
 
+import android.app.Activity;
 import android.content.Context;
+import android.view.inputmethod.InputMethodManager;
 
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
@@ -28,5 +30,11 @@ public class FragmentWithFragmentActivity extends Fragment {
     public void onAttach(Context context) {
         super.onAttach(context);
         fragmentActivity = (FragmentActivity) context;
+    }
+
+    protected void hideKeyboard() {
+        InputMethodManager imm = (InputMethodManager) getContext()
+                .getSystemService(Activity.INPUT_METHOD_SERVICE);
+        imm.hideSoftInputFromWindow(getView().getWindowToken(), 0);
     }
 }

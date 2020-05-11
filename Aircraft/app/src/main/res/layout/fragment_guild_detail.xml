@@ -18,7 +18,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/company_detail_text_input"
+        android:id="@+id/guild_detail_text_input"
         android:layout_width="160dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="11dp"
@@ -37,7 +37,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="32dp"
         android:layout_marginEnd="16dp"
-        android:hint="@string/name_field"
+        android:hint="@string/guild_name_field"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/detail_title"
@@ -126,6 +126,7 @@
         android:layout_marginStart="32dp"
         android:layout_marginTop="16dp"
         android:text="@string/save_changes"
+        android:visibility="invisible"
         app:layout_constraintStart_toEndOf="@+id/button_change_guild_company"
         app:layout_constraintTop_toBottomOf="@+id/companies_spinner"
         tools:visibility="invisible" />
@@ -203,6 +204,7 @@
         android:layout_marginStart="32dp"
         android:layout_marginTop="16dp"
         android:text="@string/save_changes"
+        android:visibility="invisible"
         app:layout_constraintStart_toEndOf="@+id/button_change_guild_manager"
         app:layout_constraintTop_toBottomOf="@+id/guild_manager_spinner"
         tools:visibility="invisible" />
@@ -224,6 +226,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
         android:text="@string/save_all"
+        android:visibility="invisible"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button_add_guild"
         tools:visibility="invisible" />

@@ -24,7 +24,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/add_company_description"
-        android:hint="@string/name_field"
+        android:hint="@string/company_name_field"
         android:paddingTop="16dp"
         app:hintAnimationEnabled="true"
         app:hintEnabled="true"
@@ -34,7 +34,7 @@
             android:id="@+id/company_name_input"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/name_field"
+            android:hint="@string/company_name_field"
             android:theme="@style/MyEditText" />
     </com.google.android.material.textfield.TextInputLayout>
 

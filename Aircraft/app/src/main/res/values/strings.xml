@@ -31,7 +31,7 @@
 
     <!--Add company fragment -->
     <string name="add_company_text">Добавить предприятие</string>
-    <string name="name_field">Название предприятия</string>
+    <string name="company_name_field">Название предприятия</string>
 
     <!--Detail company fragment-->
     <string name="change_company_name">Изменить название</string>

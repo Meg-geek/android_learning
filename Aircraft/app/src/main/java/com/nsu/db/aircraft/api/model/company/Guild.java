@@ -22,5 +22,8 @@ public class Guild {
     @Expose
     private Company company;
 
-
+    public Guild(String guildName, Company company) {
+        this.guildName = guildName;
+        this.company = company;
+    }
 }
