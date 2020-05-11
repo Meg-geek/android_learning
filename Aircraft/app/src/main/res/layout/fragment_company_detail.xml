@@ -26,12 +26,12 @@
         app:hintEnabled="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/detail_company_name">
+        app:layout_constraintTop_toBottomOf="@+id/detail_guild_name">
 
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/detail_company_name"
+        android:id="@+id/detail_guild_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -43,35 +43,35 @@
         app:layout_constraintTop_toBottomOf="@+id/detail_title" />
 
     <Button
-        android:id="@+id/button_change_company_name"
+        android:id="@+id/button_change_guild_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:text="@string/change_company_name"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/detail_company_name" />
+        app:layout_constraintTop_toBottomOf="@+id/detail_guild_name" />
 
     <Button
-        android:id="@+id/button_detail_company_save"
+        android:id="@+id/button_detail_guild_save"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:layout_marginTop="16dp"
         android:text="@string/save_changes"
         android:visibility="invisible"
-        app:layout_constraintStart_toEndOf="@+id/button_change_company_name"
-        app:layout_constraintTop_toBottomOf="@+id/detail_company_name" />
+        app:layout_constraintStart_toEndOf="@+id/button_change_guild_name"
+        app:layout_constraintTop_toBottomOf="@+id/detail_guild_name" />
 
     <Button
-        android:id="@+id/button_delete_detail_company"
+        android:id="@+id/button_delete_detail_guild"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:text="@string/delete_element"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button_change_company_name" />
+        app:layout_constraintTop_toBottomOf="@+id/button_change_guild_name" />
 
     <TextView
         android:id="@+id/detail_company_load_text"
@@ -91,7 +91,7 @@
         android:layout_marginTop="16dp"
         android:layout_marginBottom="16dp"
         android:text="@string/name_field"
-        app:layout_constraintBottom_toTopOf="@+id/detail_company_name"
+        app:layout_constraintBottom_toTopOf="@+id/detail_guild_name"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/detail_title" />
 
@@ -103,7 +103,7 @@
         android:layout_marginTop="16dp"
         android:text="@string/company_detail_guilds"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button_delete_detail_company" />
+        app:layout_constraintTop_toBottomOf="@+id/button_delete_detail_guild" />
 
     <ListView
         android:id="@+id/company_detail_guilds"

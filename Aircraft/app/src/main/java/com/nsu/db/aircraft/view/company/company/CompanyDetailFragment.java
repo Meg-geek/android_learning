@@ -65,7 +65,7 @@ public class CompanyDetailFragment extends Fragment {
     }
 
     private void setDeleteButton(View view) {
-        Button deleteButton = view.findViewById(R.id.button_delete_detail_company);
+        Button deleteButton = view.findViewById(R.id.button_delete_detail_guild);
         deleteButton.setOnClickListener(v -> showDialog());
     }
 
@@ -116,7 +116,7 @@ public class CompanyDetailFragment extends Fragment {
     }
 
     private void setSaveButton(View view) {
-        Button saveButton = view.findViewById(R.id.button_detail_company_save);
+        Button saveButton = view.findViewById(R.id.button_detail_guild_save);
         saveButton.setOnClickListener(v -> {
             hideKeyboard();
             if (isNameFieldWrong()) {
@@ -163,7 +163,7 @@ public class CompanyDetailFragment extends Fragment {
     }
 
     private String getEnteredName() {
-        TextInputEditText companyName = getView().findViewById(R.id.detail_company_name);
+        TextInputEditText companyName = getView().findViewById(R.id.detail_guild_name);
         return companyName.getText().toString();
     }
 
@@ -174,11 +174,11 @@ public class CompanyDetailFragment extends Fragment {
     }
 
     private void setChangeNameButton(View view) {
-        Button changeNameButton = view.findViewById(R.id.button_change_company_name);
+        Button changeNameButton = view.findViewById(R.id.button_change_guild_name);
         changeNameButton.setOnClickListener(v -> {
-            TextInputEditText companyName = view.findViewById(R.id.detail_company_name);
+            TextInputEditText companyName = view.findViewById(R.id.detail_guild_name);
             companyName.setEnabled(true);
-            Button saveButton = view.findViewById(R.id.button_detail_company_save);
+            Button saveButton = view.findViewById(R.id.button_detail_guild_save);
             saveButton.setVisibility(View.VISIBLE);
         });
     }
@@ -189,7 +189,7 @@ public class CompanyDetailFragment extends Fragment {
     }
 
     private void setCompanyNameField(View view) {
-        TextInputEditText companyName = view.findViewById(R.id.detail_company_name);
+        TextInputEditText companyName = view.findViewById(R.id.detail_guild_name);
         companyName.setText(company.getName());
         companyName.setEnabled(false);
     }

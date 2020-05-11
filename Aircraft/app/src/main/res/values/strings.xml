@@ -41,6 +41,11 @@
     <string name="company_success_delete">Компания успешно удалена</string>
     <string name="company_detail_guilds">Цеха</string>
 
+    <!--Detail guild fragment-->
+    <string name="guild_name_field">Название цеха</string>
+    <string name="guild_manager">Менеджер цеха</string>
+    <string name="add_guild">Добавить цех</string>
+
 
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
@@ -54,5 +59,7 @@
     <string name="delete_dialog_title">Подтверждение удаления</string>
     <string name="dialog_ok">Да</string>
     <string name="dialog_cancel">Отмена</string>
+    <string name="change">Изменить</string>
+    <string name="save_all">Сохранить все изменения</string>
 
 </resources>

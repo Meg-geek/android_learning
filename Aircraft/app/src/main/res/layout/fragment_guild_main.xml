@@ -13,8 +13,8 @@
         android:id="@+id/guild_image"
         android:layout_width="match_parent"
         android:layout_height="200dp"
-        android:src="@drawable/guild"
-        android:contentDescription="@string/guild_menu_item_text"/>
+        android:contentDescription="@string/guild_menu_item_text"
+        android:src="@drawable/guild" />
 
     <Button
         android:id="@+id/button_guild_show_all"

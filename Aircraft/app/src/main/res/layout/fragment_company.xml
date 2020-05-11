@@ -13,8 +13,8 @@
         android:id="@+id/company_image"
         android:layout_width="match_parent"
         android:layout_height="200dp"
-        android:src="@drawable/company"
-        android:contentDescription="@string/company_title"/>
+        android:contentDescription="@string/company_title"
+        android:src="@drawable/company" />
 
     <Button
         android:id="@+id/button_company_show_all"

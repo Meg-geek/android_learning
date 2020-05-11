@@ -55,7 +55,7 @@ public class MainActivity extends AppCompatActivity
         startFragment(new HomeFragment());
     }
 
-    private void startFragment(Fragment fragment){
+    private void startFragment(Fragment fragment) {
         fragmentManager = getSupportFragmentManager();
         fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.replace(R.id.container_fragment, fragment);
@@ -66,7 +66,7 @@ public class MainActivity extends AppCompatActivity
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
         drawerLayout.closeDrawer(GravityCompat.START);
-        switch (menuItem.getItemId()){
+        switch (menuItem.getItemId()) {
             case R.id.company_menu_item:
                 startFragment(new CompanyFragment());
                 break;

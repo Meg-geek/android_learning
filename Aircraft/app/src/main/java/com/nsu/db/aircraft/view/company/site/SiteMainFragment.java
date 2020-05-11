@@ -1,12 +1,11 @@
 package com.nsu.db.aircraft.view.company.site;
 
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import androidx.fragment.app.Fragment;
 
 import com.nsu.db.aircraft.R;
 

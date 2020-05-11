@@ -1,6 +1,5 @@
 package com.nsu.db.aircraft.view.company.company;
 
-import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,16 +9,12 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentActivity;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
-
 import com.nsu.db.aircraft.R;
 import com.nsu.db.aircraft.api.GeneralResponse;
 import com.nsu.db.aircraft.api.Status;
 import com.nsu.db.aircraft.api.model.company.Company;
 import com.nsu.db.aircraft.network.NetworkService;
+import com.nsu.db.aircraft.view.FragmentWithFragmentActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,8 +24,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 
-public class CompanyAllFragment extends Fragment {
-    private FragmentActivity fragmentActivity;
+public class CompanyAllFragment extends FragmentWithFragmentActivity {
 
     private List<Company> companies;
 
@@ -42,18 +36,9 @@ public class CompanyAllFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_company_all, container, false);
-        TextView textView = view.findViewById(R.id.text_view_all_companies);
-        textView.setVisibility(View.VISIBLE);
-        textView.setText("Загрузка....");
         setCompaniesListView(view);
         sendCompaniesRequest();
         return view;
-    }
-
-    @Override
-    public void onAttach(Context context) {
-        super.onAttach(context);
-        fragmentActivity = (FragmentActivity) context;
     }
 
     private void setCompaniesListView(View view) {
@@ -62,16 +47,8 @@ public class CompanyAllFragment extends Fragment {
             if (position < 0 || position >= companies.size()) {
                 return;
             }
-            startCompanyDetailFragment(companies.get(position));
+            startFragment(new CompanyDetailFragment(companies.get(position)));
         });
-    }
-
-    private void startCompanyDetailFragment(Company company) {
-        FragmentManager fragmentManager = fragmentActivity.getSupportFragmentManager();
-        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.replace(R.id.container_fragment, new CompanyDetailFragment(company));
-        fragmentTransaction.addToBackStack(null);
-        fragmentTransaction.commit();
     }
 
     private void sendCompaniesRequest() {
@@ -83,16 +60,12 @@ public class CompanyAllFragment extends Fragment {
                     public void onResponse(Call<GeneralResponse<List<Company>>> call,
                                            Response<GeneralResponse<List<Company>>> response) {
                         if (!response.isSuccessful()) {
-                            Toast.makeText(getContext(),
-                                    R.string.error_text,
-                                    Toast.LENGTH_LONG).show();
+                            showError();
                             return;
                         }
                         GeneralResponse<List<Company>> generalResponse = response.body();
                         if (generalResponse.getStatus() != Status.OK) {
-                            Toast.makeText(getContext(),
-                                    R.string.error_text,
-                                    Toast.LENGTH_LONG).show();
+                            showError();
                             return;
                         }
                         companies = generalResponse.getData();
@@ -101,12 +74,16 @@ public class CompanyAllFragment extends Fragment {
 
                     @Override
                     public void onFailure(Call<GeneralResponse<List<Company>>> call, Throwable t) {
-                        Toast.makeText(getContext(),
-                                R.string.error_text,
-                                Toast.LENGTH_LONG).show();
+                        showError();
                     }
                 });
 
+    }
+
+    private void showError() {
+        Toast.makeText(getContext(),
+                R.string.error_text,
+                Toast.LENGTH_LONG).show();
     }
 
     private void updateCompaniesList() {
