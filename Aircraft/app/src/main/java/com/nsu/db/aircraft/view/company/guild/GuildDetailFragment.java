@@ -100,6 +100,7 @@ public class GuildDetailFragment extends FragmentWithFragmentActivity {
                             return;
                         }
                         showTextOnScreen(GUILD_SUCCESSFUL_ADD);
+                        startFragment(new GuildMainFragment());
                     }
 
                     @Override

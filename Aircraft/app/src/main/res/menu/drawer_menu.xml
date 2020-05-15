@@ -22,4 +22,32 @@
     </menu>
 </item>
 
+    <item android:title="@string/staff_title">
+        <menu>
+            <item
+                android:id="@+id/staff_menu_item"
+                android:title="@string/staff_menu_title" />
+        </menu>
+    </item>
+
+    <item android:title="@string/products_menu_title">
+        <menu>
+            <item
+                android:id="@+id/products_menu_item"
+                android:title="@string/products_title" />
+        </menu>
+    </item>
+
+    <item android:title="@string/tests_title">
+        <menu>
+            <item
+                android:id="@+id/test_labs_menu_item"
+                android:title="@string/test_labs_title" />
+            <item
+                android:id="@+id/tests_menu_item"
+                android:title="@string/tests_title" />
+
+        </menu>
+    </item>
+
 </menu>

@@ -1,5 +1,4 @@
-package com.nsu.db.aircraft.view;
-
+package com.nsu.db.aircraft.view.staff;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -10,11 +9,9 @@ import androidx.fragment.app.Fragment;
 
 import com.nsu.db.aircraft.R;
 
+public class StaffAllFragment extends Fragment {
 
-public class FragmentSecond extends Fragment {
-
-
-    public FragmentSecond() {
+    public StaffAllFragment() {
         // Required empty public constructor
     }
 
@@ -23,7 +20,6 @@ public class FragmentSecond extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_fragment_second, container, false);
+        return inflater.inflate(R.layout.fragment_staff_all, container, false);
     }
-
 }

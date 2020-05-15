@@ -18,6 +18,7 @@ import com.nsu.db.aircraft.R;
 import com.nsu.db.aircraft.view.company.company.CompanyFragment;
 import com.nsu.db.aircraft.view.company.guild.GuildMainFragment;
 import com.nsu.db.aircraft.view.company.site.SiteMainFragment;
+import com.nsu.db.aircraft.view.staff.StaffMainFragment;
 
 
 public class MainActivity extends AppCompatActivity
@@ -75,6 +76,9 @@ public class MainActivity extends AppCompatActivity
                 break;
             case R.id.site_menu_item:
                 startFragment(new SiteMainFragment());
+                break;
+            case R.id.staff_menu_item:
+                startFragment(new StaffMainFragment());
                 break;
             default:
                 startFragment(new HomeFragment());

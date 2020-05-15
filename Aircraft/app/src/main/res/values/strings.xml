@@ -14,6 +14,12 @@
     <string name="company_menu_item_text">Предприятие</string>
     <string name="guild_menu_item_text">Цех</string>
     <string name="site_menu_item_text">Участок</string>
+    <string name="staff_title">Персонал</string>
+    <string name="staff_menu_title">Сотрудники</string>
+    <string name="products_menu_title">Продукция</string>
+    <string name="products_title">Изделия</string>
+    <string name="tests_title">Испытания</string>
+    <string name="test_labs_title">Испытательные лаборатории</string>
 
     <!--Company fragment string resources-->
     <string name="button_show_all_companies_text">Показать все предприятия</string>
@@ -28,6 +34,22 @@
     <string name="button_show_all_sites_text">Показать все участки</string>
     <string name="button_add_site_text">Добавить участок</string>
 
+    <!--Staff fragment string resources-->
+    <string name="button_show_all_staff_text">Показать всех сотрудников</string>
+    <string name="button_add_staff_text">Добавить сотрудника</string>
+
+    <!--Staff all fragment-->
+    <string name="choose_category_text">Выберите специальность сотрудников</string>
+    <string-array name="staff_categories">
+        <item>Инженеры</item>
+        <item>Техники</item>
+        <item>Сборщики</item>
+        <item>Токари</item>
+        <item>Слесари</item>
+        <item>Сварщики</item>
+        <item>Испытатели</item>
+        <item>Все</item>
+    </string-array>
 
     <!--Add company fragment -->
     <string name="add_company_text">Добавить предприятие</string>
@@ -61,5 +83,6 @@
     <string name="dialog_cancel">Отмена</string>
     <string name="change">Изменить</string>
     <string name="save_all">Сохранить все изменения</string>
+    <string name="show">Показать</string>
 
 </resources>
