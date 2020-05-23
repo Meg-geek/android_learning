@@ -34,6 +34,13 @@
     <string name="button_show_all_sites_text">Показать все участки</string>
     <string name="button_add_site_text">Добавить участок</string>
 
+    <!--Products fragment string resources-->
+    <string name="button_show_all_products_text">Показать всю продукцию</string>
+    <string name="button_add_product_text">Добавить продукцию</string>
+
+    <!--Products all fragment-->
+    <string name="choose_product_text">Выберите категорию изделий</string>
+
     <!--Staff fragment string resources-->
     <string name="button_show_all_staff_text">Показать всех сотрудников</string>
     <string name="button_add_staff_text">Добавить сотрудника</string>

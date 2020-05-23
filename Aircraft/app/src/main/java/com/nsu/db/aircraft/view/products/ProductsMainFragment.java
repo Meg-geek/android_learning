@@ -1,4 +1,4 @@
-package com.nsu.db.aircraft.view.staff;
+package com.nsu.db.aircraft.view.products;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -9,9 +9,9 @@ import com.nsu.db.aircraft.R;
 import com.nsu.db.aircraft.view.FragmentWithFragmentActivity;
 
 
-public class StaffMainFragment extends FragmentWithFragmentActivity {
+public class ProductsMainFragment extends FragmentWithFragmentActivity {
 
-    public StaffMainFragment() {
+    public ProductsMainFragment() {
         // Required empty public constructor
     }
 
@@ -19,8 +19,8 @@ public class StaffMainFragment extends FragmentWithFragmentActivity {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_staff_main, container, false);
-        setStartFragmentButton(view, R.id.button_staff_show_all, new StaffAllFragment());
+        View view = inflater.inflate(R.layout.fragment_products_main, container, false);
+        setStartFragmentButton(view, R.id.button_products_show_all, new AllProductsFragment());
         return view;
     }
 }

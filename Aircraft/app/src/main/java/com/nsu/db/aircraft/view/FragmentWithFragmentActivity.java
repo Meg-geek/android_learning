@@ -2,7 +2,9 @@ package com.nsu.db.aircraft.view;
 
 import android.app.Activity;
 import android.content.Context;
+import android.view.View;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.Button;
 
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
@@ -36,5 +38,10 @@ public class FragmentWithFragmentActivity extends Fragment {
         InputMethodManager imm = (InputMethodManager) getContext()
                 .getSystemService(Activity.INPUT_METHOD_SERVICE);
         imm.hideSoftInputFromWindow(getView().getWindowToken(), 0);
+    }
+
+    protected void setStartFragmentButton(View view, int buttonId, Fragment fragment) {
+        Button startFragmentButton = view.findViewById(buttonId);
+        startFragmentButton.setOnClickListener(v -> startFragment(fragment));
     }
 }
