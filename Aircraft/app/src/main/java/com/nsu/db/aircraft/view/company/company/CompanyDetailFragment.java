@@ -1,18 +1,16 @@
 package com.nsu.db.aircraft.view.company.company;
 
-import android.app.Activity;
-import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.inputmethod.InputMethodManager;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AlertDialog;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
@@ -22,16 +20,22 @@ import com.nsu.db.aircraft.R;
 import com.nsu.db.aircraft.api.GeneralResponse;
 import com.nsu.db.aircraft.api.Status;
 import com.nsu.db.aircraft.api.model.company.Company;
+import com.nsu.db.aircraft.api.model.company.Guild;
 import com.nsu.db.aircraft.network.NetworkService;
+import com.nsu.db.aircraft.view.FragmentWithFragmentActivity;
+import com.nsu.db.aircraft.view.company.guild.GuildDetailFragment;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
 
-public class CompanyDetailFragment extends Fragment {
+public class CompanyDetailFragment extends FragmentWithFragmentActivity {
     private Company company;
-    private FragmentActivity fragmentActivity;
+    private List<Guild> guilds;
 
     public CompanyDetailFragment() {
         // Required empty public constructor
@@ -51,17 +55,55 @@ public class CompanyDetailFragment extends Fragment {
         setSaveButton(view);
         setDeleteButton(view);
         fillGuilds(view);
+        setGuildsListView(view);
         return view;
     }
 
-    private void fillGuilds(View view) {
-
+    private void setGuildsListView(View view) {
+        ListView guildsView = view.findViewById(R.id.company_detail_guilds);
+        guildsView.setOnItemClickListener((parent, view1, position, id) -> {
+            if (position < 0 || guilds == null || position >= guilds.size()) {
+                return;
+            }
+            startFragment(new GuildDetailFragment(guilds.get(position)));
+        });
     }
 
-    @Override
-    public void onAttach(Context context) {
-        super.onAttach(context);
-        fragmentActivity = (FragmentActivity) context;
+    private void fillGuilds(View view) {
+        NetworkService.getInstance()
+                .getGuildJsonApi()
+                .getByCompanyId(company.getId())
+                .enqueue(new Callback<GeneralResponse<List<Guild>>>() {
+                    @Override
+                    public void onResponse(Call<GeneralResponse<List<Guild>>> call,
+                                           Response<GeneralResponse<List<Guild>>> response) {
+                        if (!response.isSuccessful()) {
+                            showToast(R.string.error_text);
+                            return;
+                        }
+                        guilds = response.body().getData();
+                        if (guilds == null) {
+                            return;
+                        }
+                        updateGuildsListView();
+                    }
+
+                    @Override
+                    public void onFailure(Call<GeneralResponse<List<Guild>>> call, Throwable t) {
+                        showToast(R.string.error_text);
+                    }
+                });
+    }
+
+    private void updateGuildsListView() {
+        ListView guildsList = getView().findViewById(R.id.company_detail_guilds);
+        List<String> guildNames = new ArrayList<>();
+        guilds.forEach(guild -> guildNames.add(guild.getGuildName()));
+        ArrayAdapter<String> namesAdapter = new ArrayAdapter<>(getContext(),
+                android.R.layout.simple_list_item_1, guildNames);
+        guildsList.setAdapter(namesAdapter);
+        TextView textView = getView().findViewById(R.id.detail_company_load_text);
+        textView.setVisibility(View.INVISIBLE);
     }
 
     private void setDeleteButton(View view) {
@@ -167,11 +209,6 @@ public class CompanyDetailFragment extends Fragment {
         return companyName.getText().toString();
     }
 
-    private void hideKeyboard() {
-        InputMethodManager imm = (InputMethodManager) getContext()
-                .getSystemService(Activity.INPUT_METHOD_SERVICE);
-        imm.hideSoftInputFromWindow(getView().getWindowToken(), 0);
-    }
 
     private void setChangeNameButton(View view) {
         Button changeNameButton = view.findViewById(R.id.button_change_guild_name);

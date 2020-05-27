@@ -25,6 +25,9 @@
             <item
                 android:id="@+id/staff_menu_item"
                 android:title="@string/staff_menu_title" />
+            <item
+                android:id="@+id/brigades_menu_item"
+                android:title="@string/brigades_menu_item_text" />
         </menu>
     </item>
 

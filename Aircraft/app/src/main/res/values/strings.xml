@@ -15,6 +15,7 @@
     <string name="guild_menu_item_text">Цех</string>
     <string name="site_menu_item_text">Участок</string>
     <string name="staff_title">Персонал</string>
+    <string name="brigades_menu_item_text">Бригады</string>
     <string name="staff_menu_title">Сотрудники</string>
     <string name="products_menu_title">Продукция</string>
     <string name="products_title">Изделия</string>
@@ -69,6 +70,9 @@
         что хотите удалить данное предприятие?</string>
     <string name="company_success_delete">Компания успешно удалена</string>
     <string name="company_detail_guilds">Цеха</string>
+    <string name="show_products">Продукция</string>
+    <string name="show_staff">Персонал</string>
+    <string name="show_sites">Участки</string>
 
     <!--Detail guild fragment-->
     <string name="guild_name_field">Название цеха</string>

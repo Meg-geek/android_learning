@@ -14,7 +14,7 @@ import androidx.fragment.app.FragmentTransaction;
 import com.nsu.db.aircraft.R;
 
 public class FragmentWithFragmentActivity extends Fragment {
-    private FragmentActivity fragmentActivity;
+    protected FragmentActivity fragmentActivity;
 
     public FragmentWithFragmentActivity() {
 

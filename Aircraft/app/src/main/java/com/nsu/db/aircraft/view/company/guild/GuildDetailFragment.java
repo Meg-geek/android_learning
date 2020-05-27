@@ -45,7 +45,7 @@ public class GuildDetailFragment extends FragmentWithFragmentActivity {
         // Required empty public constructor
     }
 
-    GuildDetailFragment(Guild guild) {
+    public GuildDetailFragment(Guild guild) {
         this.guild = guild;
         this.isAddFragment = false;
     }

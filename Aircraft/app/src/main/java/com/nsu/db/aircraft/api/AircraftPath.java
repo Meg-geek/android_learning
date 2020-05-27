@@ -6,11 +6,14 @@ public class AircraftPath {
     public static final String COMPANY = "/company";
     public static final String GUILD = "/guild";
     public static final String PRODUCTS = "/products";
+    public static final String STAFF = "/staff";
 
     public static final String ADD = "/add";
     public static final String GET_ALL = "/get-all";
     public static final String CHANGE_NAME = "/change-name";
     public static final String DELETE_BY_NAME = "/delete-by-name";
+    public static final String DELETE_BY_ID = "/delete-by-id";
+    public static final String UPDATE = "/update";
 
     public static final String GET_BY_COMPANY = "/get-by-company";
 
@@ -19,4 +22,15 @@ public class AircraftPath {
     public static final String HANG_GLIDER = "/hang-glider";
     public static final String ROCKET = "/rocket";
 
+    public static final String BRIGADES = "/brigades";
+    public static final String ENGINEERS = "/engineers";
+    public static final String GUILD_MANAGERS = "/guild-managers";
+    public static final String MASTER = "/master";
+    public static final String SITE_MANAGERS = "/site-managers";
+    public static final String TECHNICIANS = "/technicians";
+    public static final String TESTERS = "/testers";
+    public static final String WELDERS = "/welders";
+    public static final String TURNERS = "/turners";
+    public static final String PICKERS = "/pickers";
+    public static final String LOCKSMITH = "/locksmiths";
 }
