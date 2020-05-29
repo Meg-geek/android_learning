@@ -7,6 +7,7 @@ public class AircraftPath {
     public static final String GUILD = "/guild";
     public static final String PRODUCTS = "/products";
     public static final String STAFF = "/staff";
+    public static final String ACCOUNTING = "/accounting";
 
     public static final String ADD = "/add";
     public static final String GET_ALL = "/get-all";
@@ -33,4 +34,6 @@ public class AircraftPath {
     public static final String TURNERS = "/turners";
     public static final String PICKERS = "/pickers";
     public static final String LOCKSMITH = "/locksmiths";
+
+    public static final String STAGES = "/stages";
 }

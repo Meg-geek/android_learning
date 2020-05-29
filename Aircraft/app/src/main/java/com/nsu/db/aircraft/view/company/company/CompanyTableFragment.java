@@ -6,16 +6,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TableLayout;
 import android.widget.TableRow;
-import android.widget.TextView;
-import android.widget.Toast;
-
-import androidx.fragment.app.Fragment;
 
 import com.nsu.db.aircraft.R;
 import com.nsu.db.aircraft.api.GeneralResponse;
 import com.nsu.db.aircraft.api.Status;
 import com.nsu.db.aircraft.api.model.company.Company;
 import com.nsu.db.aircraft.network.NetworkService;
+import com.nsu.db.aircraft.view.TableFragment;
 
 import java.util.List;
 
@@ -26,12 +23,12 @@ import retrofit2.Response;
 import static java.lang.String.valueOf;
 import static java.util.Arrays.asList;
 
-public class CompanyTableFragment extends Fragment {
-    private final List<String> columnNames = asList("id", "name");
+public class CompanyTableFragment extends TableFragment {
     private List<Company> companies;
 
 
     public CompanyTableFragment() {
+        super(asList("id", "name"));
         // Required empty public constructor
     }
 
@@ -84,23 +81,4 @@ public class CompanyTableFragment extends Fragment {
                 });
     }
 
-    private void showError() {
-        Toast.makeText(getContext(), R.string.error_text, Toast.LENGTH_LONG).show();
-    }
-
-    private TextView getTextViewForTable(String text) {
-        TextView textView = new TextView(getContext());
-        textView.setTextAppearance(R.style.TablesText);
-        textView.setText(text);
-        return textView;
-    }
-
-    private void addColumnNames(TableLayout tableLayout) {
-        TableRow tableRow = new TableRow(getContext());
-        tableRow.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.WRAP_CONTENT));
-        for (String columnName : columnNames) {
-            tableRow.addView(getTextViewForTable(columnName));
-        }
-        tableLayout.addView(tableRow);
-    }
 }

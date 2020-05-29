@@ -7,7 +7,6 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.nsu.db.aircraft.R;
 import com.nsu.db.aircraft.api.GeneralResponse;
@@ -80,11 +79,6 @@ public class CompanyAllFragment extends FragmentWithFragmentActivity {
 
     }
 
-    private void showError() {
-        Toast.makeText(getContext(),
-                R.string.error_text,
-                Toast.LENGTH_LONG).show();
-    }
 
     private void updateCompaniesList() {
         ListView companiesView = getView().findViewById(R.id.all_companies_list_view);

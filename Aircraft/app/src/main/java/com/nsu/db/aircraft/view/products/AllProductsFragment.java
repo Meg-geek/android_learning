@@ -9,7 +9,6 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.nsu.db.aircraft.R;
 import com.nsu.db.aircraft.api.GeneralResponse;
@@ -53,13 +52,10 @@ public class AllProductsFragment extends FragmentWithFragmentActivity {
 
     private void setShowButton(View view) {
         Button showButton = view.findViewById(R.id.show_products);
-        showButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                showLoadText(view);
-                String selectedCategory = getSpinnerValue(view);
-                sendRequest(selectedCategory, false);
-            }
+        showButton.setOnClickListener(v -> {
+            showLoadText(view);
+            String selectedCategory = getSpinnerValue(view);
+            sendRequest(selectedCategory, false);
         });
     }
 
@@ -107,9 +103,6 @@ public class AllProductsFragment extends FragmentWithFragmentActivity {
         sendRequest(Product.ROCKET, true);
     }
 
-    private void showError() {
-        Toast.makeText(getContext(), R.string.error_text, Toast.LENGTH_LONG).show();
-    }
 
     private String getSpinnerValue(View view) {
         Spinner productsSpinner = view.findViewById(R.id.products_spinner);

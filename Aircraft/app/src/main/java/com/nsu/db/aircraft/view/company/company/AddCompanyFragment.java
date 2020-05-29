@@ -26,7 +26,7 @@ import retrofit2.Response;
 
 
 public class AddCompanyFragment extends Fragment {
-    final static String WRONG_COMPANY_NAME_INPUT = "Неправильно введено название компании: " +
+    final static String WRONG_COMPANY_NAME_INPUT = "Неправильно введено название: " +
             "название состоит из букв русского или английского алфавита и пробелов";
     private final static String COMPANY_ALREADY_EXISTS_ERROR = "Предприятие с данным названием " +
             "уже существует";

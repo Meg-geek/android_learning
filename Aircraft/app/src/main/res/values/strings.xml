@@ -21,6 +21,9 @@
     <string name="products_title">Изделия</string>
     <string name="tests_title">Испытания</string>
     <string name="test_labs_title">Испытательные лаборатории</string>
+    <string name="accounting_menu_title">Учет продукции</string>
+    <string name="stages_title">"Этапы изготовления</string>
+    <string name="accounting_title">Учет</string>
 
     <!--Company fragment string resources-->
     <string name="button_show_all_companies_text">Показать все предприятия</string>
@@ -95,5 +98,15 @@
     <string name="change">Изменить</string>
     <string name="save_all">Сохранить все изменения</string>
     <string name="show">Показать</string>
+    <string name="add">Добавить</string>
+    <string name="update_success">Элемент успешно обновлен</string>
+    <string name="success_delete">Элемент успешно удален</string>
 
+
+    <string name="button_show_all_stages_text">Показать все этапы</string>
+    <string name="button_add_stage_text">Добавить этап</string>
+
+    <!--Stage detail fragment-->
+    <string name="stage_title">Этап изготовления</string>
+    <string name="stage_name">Название этапа</string>
 </resources>
