@@ -1,4 +1,4 @@
-package com.nsu.db.aircraft.api.rest;
+package com.nsu.db.aircraft.api.rest.company;
 
 import com.nsu.db.aircraft.api.GeneralResponse;
 import com.nsu.db.aircraft.api.model.company.Company;

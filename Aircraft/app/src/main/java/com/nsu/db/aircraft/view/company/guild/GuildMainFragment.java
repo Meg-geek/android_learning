@@ -21,6 +21,7 @@ public class GuildMainFragment extends FragmentWithFragmentActivity {
         View view = inflater.inflate(R.layout.fragment_guild_main, container, false);
         setStartFragmentButton(view, R.id.button_guild_show_all, new AllGuildsFragment());
         setStartFragmentButton(view, R.id.button_add_guild, new GuildDetailFragment());
+        setStartFragmentButton(view, R.id.button_show_guilds_table, new GuildTableFragment());
         return view;
     }
 }

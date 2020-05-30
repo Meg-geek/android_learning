@@ -16,9 +16,11 @@ import com.nsu.db.aircraft.api.GeneralResponse;
 import com.nsu.db.aircraft.api.Status;
 import com.nsu.db.aircraft.api.model.company.Company;
 import com.nsu.db.aircraft.api.model.company.Guild;
+import com.nsu.db.aircraft.api.model.staff.Employee;
 import com.nsu.db.aircraft.network.NetworkService;
 import com.nsu.db.aircraft.view.FragmentWithFragmentActivity;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -27,6 +29,8 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 import static android.view.View.INVISIBLE;
+import static android.view.View.VISIBLE;
+import static java.util.Arrays.asList;
 
 
 public class GuildDetailFragment extends FragmentWithFragmentActivity {
@@ -39,6 +43,7 @@ public class GuildDetailFragment extends FragmentWithFragmentActivity {
 
     private Guild guild;
     private List<Company> companies;
+    private List<Employee> guildManagers = new ArrayList<>();
     private boolean isAddFragment = true;
 
     public GuildDetailFragment() {
@@ -66,7 +71,6 @@ public class GuildDetailFragment extends FragmentWithFragmentActivity {
     private void setAddFragment(View view) {
         setVisibilityForAdd(view);
         sendCompaniesRequest(view);
-        sendGuildManagerRequest();
         setAddGuildButton(view);
     }
 
@@ -83,7 +87,7 @@ public class GuildDetailFragment extends FragmentWithFragmentActivity {
 
     private void sendAddGuildRequest(View view) {
         hideKeyboard();
-        Guild guild = new Guild(getEnteredName(), getCompany(view));
+        Guild guild = new Guild(getEnteredGuildName(), getCompany(view));
         NetworkService.getInstance()
                 .getGuildJsonApi()
                 .addGuild(guild)
@@ -138,14 +142,14 @@ public class GuildDetailFragment extends FragmentWithFragmentActivity {
     }
 
     private boolean isGuildNameCorrect(View view) {
-        String name = getEnteredName();
+        String name = getEnteredGuildName();
         if (name.isEmpty()) {
             return false;
         }
         return name.matches("^[a-zA-Zа-яА-Я ]*$");
     }
 
-    private String getEnteredName() {
+    private String getEnteredGuildName() {
         TextInputEditText guildName = getView().findViewById(R.id.detail_guild_name);
         return guildName.getText().toString();
     }
@@ -193,31 +197,201 @@ public class GuildDetailFragment extends FragmentWithFragmentActivity {
                 companyNames);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         companiesSpinner.setAdapter(adapter);
-        view.findViewById(R.id.load_company).setVisibility(INVISIBLE);
+    }
+
+    private void setManagers(View view) {
+        Spinner managersSpinner = view.findViewById(R.id.guild_manager_spinner);
+        List<String> managerNames = guildManagers.stream()
+                .map(manager -> manager.getName() + manager.getSurname())
+                .collect(Collectors.toList());
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(getContext(),
+                android.R.layout.simple_spinner_item,
+                managerNames);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        managersSpinner.setAdapter(adapter);
     }
 
     private void showTextOnScreen(String errorText) {
         Toast.makeText(getContext(), errorText, Toast.LENGTH_LONG).show();
     }
 
-    private void sendGuildManagerRequest() {
-
-    }
-
     private void setDetailFragment(View view) {
         setVisibilityForDetailChange(view);
+        updateFields(view);
+        setDetailButtons(view);
     }
 
+    private void setDetailButtons(View view) {
+        setDeleteButton(view);
+        setChangeButton(view);
+        setSaveButton(view);
+    }
+
+    private void setDeleteButton(View view) {
+        Button deleteButton = view.findViewById(R.id.button_delete_detail_guild);
+        deleteButton.setOnClickListener(v -> NetworkService.getInstance()
+                .getGuildJsonApi()
+                .deleteById(guild.getId())
+                .enqueue(new Callback<GeneralResponse>() {
+                    @Override
+                    public void onResponse(Call<GeneralResponse> call,
+                                           Response<GeneralResponse> response) {
+                        if (!response.isSuccessful()) {
+                            showError();
+                            return;
+                        }
+                        showText(R.string.success_delete);
+                        startFragment(new GuildMainFragment());
+                    }
+
+                    @Override
+                    public void onFailure(Call<GeneralResponse> call, Throwable t) {
+                        showError();
+                    }
+                }));
+    }
+
+    private void setChangeButton(View view) {
+        setEnabledInputEditText(view, R.id.detail_guild_name, true);
+        setVisibility(view, R.id.button_save_all_guild_changes, VISIBLE);
+        Spinner companySpinner = view.findViewById(R.id.companies_spinner);
+        companySpinner.setEnabled(true);
+        Spinner managerSpinner = view.findViewById(R.id.guild_manager_spinner);
+        managerSpinner.setEnabled(true);
+        loadFreeManagers();
+        sendCompaniesRequest(view);
+    }
+
+    private void loadFreeManagers() {
+        NetworkService.getInstance()
+                .getEngineeringStaffApi()
+                .getFreeManagersForGuild(guild.getId())
+                .enqueue(new Callback<GeneralResponse<List<Employee>>>() {
+                    @Override
+                    public void onResponse(Call<GeneralResponse<List<Employee>>> call,
+                                           Response<GeneralResponse<List<Employee>>> response) {
+                        if (!response.isSuccessful()) {
+                            showError();
+                            return;
+                        }
+                        List<Employee> freeManagers = response.body().getData();
+                        guildManagers.addAll(freeManagers);
+                        setManagers(getView());
+                    }
+
+                    @Override
+                    public void onFailure(Call<GeneralResponse<List<Employee>>> call, Throwable t) {
+                        showError();
+                    }
+                });
+    }
+
+    private void setSaveButton(View view) {
+        Button saveButton = view.findViewById(R.id.button_save_all_guild_changes);
+        saveButton.setOnClickListener(v -> NetworkService.getInstance()
+                .getGuildJsonApi()
+                .updateGuild(getGuildFromForm())
+                .enqueue(new Callback<GeneralResponse<Guild>>() {
+                    @Override
+                    public void onResponse(Call<GeneralResponse<Guild>> call,
+                                           Response<GeneralResponse<Guild>> response) {
+                        if (!response.isSuccessful()) {
+                            showError();
+                            return;
+                        }
+                        guild = response.body().getData();
+                        showText(R.string.update_success);
+                    }
+
+                    @Override
+                    public void onFailure(Call<GeneralResponse<Guild>> call, Throwable t) {
+                        showError();
+                    }
+                }));
+    }
+
+    private Guild getGuildFromForm() {
+        Guild newGuild = new Guild();
+        newGuild.setGuildName(getEnteredGuildName());
+        Spinner companySpinner = getView().findViewById(R.id.companies_spinner);
+        newGuild.setCompany(companies.get(companySpinner.getSelectedItemPosition()));
+        return newGuild;
+    }
+
+
+    private void updateFields(View view) {
+        setGuildName(view);
+        setCompany(view);
+        setGuildManager(view);
+    }
+
+    private void setGuildManager(View view) {
+        Spinner managerSpinner = view.findViewById(R.id.guild_manager_spinner);
+        managerSpinner.setEnabled(false);
+        sendManagerRequest(view);
+    }
+
+    private void sendManagerRequest(View view) {
+        NetworkService.getInstance()
+                .getGuildJsonApi()
+                .getGuildManagerByGuildId(guild.getId())
+                .enqueue(new Callback<GeneralResponse<Employee>>() {
+                    @Override
+                    public void onResponse(Call<GeneralResponse<Employee>> call,
+                                           Response<GeneralResponse<Employee>> response) {
+                        if (!response.isSuccessful()) {
+                            showError();
+                            return;
+                        }
+                        Employee manager = response.body().getData();
+                        if (manager.getName() == null || manager.getName().isEmpty()) {
+                            return;
+                        }
+                        guildManagers.add(manager);
+                        setManagers(view);
+                        Spinner managerSpinner = view.findViewById(R.id.guild_manager_spinner);
+                        managerSpinner.setSelection(0);
+                    }
+
+                    @Override
+                    public void onFailure(Call<GeneralResponse<Employee>> call, Throwable t) {
+                        showError();
+                    }
+                });
+    }
+
+    private void setCompany(View view) {
+        companies = asList(guild.getCompany());
+        showCompanies(view);
+        Spinner companySpinner = view.findViewById(R.id.companies_spinner);
+        companySpinner.setEnabled(false);
+        companySpinner.setSelection(0);
+    }
+
+    private void setGuildName(View view) {
+        TextInputEditText guildName = view.findViewById(R.id.detail_guild_name);
+        setEnabledInputEditText(view, R.id.detail_guild_name, false);
+        guildName.setText(guild.getGuildName());
+    }
+
+
     private void setVisibilityForDetailChange(View view) {
-        view.findViewById(R.id.button_add_guild).setVisibility(INVISIBLE);
+        setVisibility(view, R.id.button_change_guild_details, VISIBLE);
+        setVisibility(view, R.id.textView9, VISIBLE);
+        setVisibility(view, R.id.guild_manager_spinner, VISIBLE);
+
+        setVisibility(view, R.id.button_add_guild, INVISIBLE);
+        setVisibility(view, R.id.button_save_all_guild_changes, INVISIBLE);
+        setVisibility(view, R.id.button_delete_detail_guild, VISIBLE);
     }
 
     private void setVisibilityForAdd(View view) {
-        view.findViewById(R.id.button_change_guild_name).setVisibility(INVISIBLE);
-        view.findViewById(R.id.button_change_guild_company).setVisibility(INVISIBLE);
-        view.findViewById(R.id.button_change_guild_manager).setVisibility(INVISIBLE);
-        view.findViewById(R.id.button_delete_detail_guild).setVisibility(INVISIBLE);
+        setVisibility(view, R.id.button_change_guild_details, INVISIBLE);
+        setVisibility(view, R.id.textView9, INVISIBLE);
+        setVisibility(view, R.id.guild_manager_spinner, INVISIBLE);
 
-        view.findViewById(R.id.load_guild_name).setVisibility(INVISIBLE);
+        setVisibility(view, R.id.button_add_guild, VISIBLE);
+        setVisibility(view, R.id.button_save_all_guild_changes, INVISIBLE);
+        setVisibility(view, R.id.button_delete_detail_guild, INVISIBLE);
     }
 }

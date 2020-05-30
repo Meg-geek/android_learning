@@ -1,10 +1,11 @@
 package com.nsu.db.aircraft.network;
 
 
-import com.nsu.db.aircraft.api.rest.CompanyApi;
-import com.nsu.db.aircraft.api.rest.GuildApi;
 import com.nsu.db.aircraft.api.rest.ProductApi;
 import com.nsu.db.aircraft.api.rest.accounting.StageApi;
+import com.nsu.db.aircraft.api.rest.company.CompanyApi;
+import com.nsu.db.aircraft.api.rest.company.GuildApi;
+import com.nsu.db.aircraft.api.rest.staff.EngineeringStaffApi;
 
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
@@ -49,6 +50,10 @@ public class NetworkService {
 
     public StageApi getStageApi() {
         return retrofit.create(StageApi.class);
+    }
+
+    public EngineeringStaffApi getEngineeringStaffApi() {
+        return retrofit.create(EngineeringStaffApi.class);
     }
 }
 

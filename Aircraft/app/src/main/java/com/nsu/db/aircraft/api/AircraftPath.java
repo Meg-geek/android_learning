@@ -8,6 +8,7 @@ public class AircraftPath {
     public static final String PRODUCTS = "/products";
     public static final String STAFF = "/staff";
     public static final String ACCOUNTING = "/accounting";
+    public static final String ENGINEERING_STAFF = "/engineering-staff";
 
     public static final String ADD = "/add";
     public static final String GET_ALL = "/get-all";
@@ -36,4 +37,8 @@ public class AircraftPath {
     public static final String LOCKSMITH = "/locksmiths";
 
     public static final String STAGES = "/stages";
+
+    public static final String GET_MANAGER_BY_GUILD_ID = "/get-guild-manager-by-guild-id";
+    public static final String GET_MANAGERS = "/get-managers";
+    public static final String GET_FREE_MANAGERS_FOR_GUILD = "/get-free-managers-for-guild";
 }

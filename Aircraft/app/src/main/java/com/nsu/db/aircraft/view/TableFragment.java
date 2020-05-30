@@ -15,6 +15,7 @@ import lombok.NoArgsConstructor;
 
 @NoArgsConstructor
 public class TableFragment extends Fragment {
+    protected final static String NULL_VALUE = "null";
     private List<String> columnNames;
 
     public TableFragment(List<String> columnNames) {
