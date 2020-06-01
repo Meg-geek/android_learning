@@ -5,7 +5,16 @@ import com.nsu.db.aircraft.api.rest.ProductApi;
 import com.nsu.db.aircraft.api.rest.accounting.StageApi;
 import com.nsu.db.aircraft.api.rest.company.CompanyApi;
 import com.nsu.db.aircraft.api.rest.company.GuildApi;
+import com.nsu.db.aircraft.api.rest.staff.EmployeeApi;
+import com.nsu.db.aircraft.api.rest.staff.EngineerApi;
 import com.nsu.db.aircraft.api.rest.staff.EngineeringStaffApi;
+import com.nsu.db.aircraft.api.rest.staff.LocksmithApi;
+import com.nsu.db.aircraft.api.rest.staff.MasterApi;
+import com.nsu.db.aircraft.api.rest.staff.PickerApi;
+import com.nsu.db.aircraft.api.rest.staff.TechnicianApi;
+import com.nsu.db.aircraft.api.rest.staff.TesterApi;
+import com.nsu.db.aircraft.api.rest.staff.TurnerApi;
+import com.nsu.db.aircraft.api.rest.staff.WelderApi;
 
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
@@ -54,6 +63,42 @@ public class NetworkService {
 
     public EngineeringStaffApi getEngineeringStaffApi() {
         return retrofit.create(EngineeringStaffApi.class);
+    }
+
+    public TesterApi getTesterApi() {
+        return retrofit.create(TesterApi.class);
+    }
+
+    public EngineerApi getEngineerApi() {
+        return retrofit.create(EngineerApi.class);
+    }
+
+    public LocksmithApi getLocksmithApi() {
+        return retrofit.create(LocksmithApi.class);
+    }
+
+    public MasterApi getMasterApi() {
+        return retrofit.create(MasterApi.class);
+    }
+
+    public EmployeeApi getEmployeeApi() {
+        return retrofit.create(EmployeeApi.class);
+    }
+
+    public PickerApi getPickerApi() {
+        return retrofit.create(PickerApi.class);
+    }
+
+    public TechnicianApi getTechnicianApi() {
+        return retrofit.create(TechnicianApi.class);
+    }
+
+    public TurnerApi getTurnerApi() {
+        return retrofit.create(TurnerApi.class);
+    }
+
+    public WelderApi getWelderApi() {
+        return retrofit.create(WelderApi.class);
     }
 }
 

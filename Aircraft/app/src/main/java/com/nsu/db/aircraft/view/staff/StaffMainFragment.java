@@ -21,6 +21,7 @@ public class StaffMainFragment extends FragmentWithFragmentActivity {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_staff_main, container, false);
         setStartFragmentButton(view, R.id.button_staff_show_all, new StaffAllFragment());
+        setStartFragmentButton(view, R.id.button_show_staff_table, new StaffTableFragment());
         return view;
     }
 }

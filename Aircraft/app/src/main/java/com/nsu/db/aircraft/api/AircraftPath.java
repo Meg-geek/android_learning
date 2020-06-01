@@ -41,4 +41,6 @@ public class AircraftPath {
     public static final String GET_MANAGER_BY_GUILD_ID = "/get-guild-manager-by-guild-id";
     public static final String GET_MANAGERS = "/get-managers";
     public static final String GET_FREE_MANAGERS_FOR_GUILD = "/get-free-managers-for-guild";
+
+    public static final String ALL = "/all";
 }

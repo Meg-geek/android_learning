@@ -12,7 +12,9 @@ import com.nsu.db.aircraft.R;
 import java.util.List;
 
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
+@Setter
 @NoArgsConstructor
 public class TableFragment extends Fragment {
     protected final static String NULL_VALUE = "null";

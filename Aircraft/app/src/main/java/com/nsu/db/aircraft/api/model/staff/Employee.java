@@ -3,6 +3,7 @@ package com.nsu.db.aircraft.api.model.staff;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import com.nsu.db.aircraft.api.model.company.Site;
+import com.nsu.db.aircraft.api.model.tests.Range;
 
 import java.util.List;
 
@@ -33,6 +34,8 @@ public class Employee {
     public static final List<String> employeeCategories = asList(TESTER,
             ENGINEER, TECHNICIAN, WELDER, TURNER, PICKER, LOCKSMITH, GUILD_MANAGER,
             SITE_MANAGER, MASTER, ALL);
+    public static final List<String> employeeTables = asList(TESTER,
+            ENGINEER, TECHNICIAN, WELDER, TURNER, PICKER, LOCKSMITH, MASTER, ALL);
 
     private String employeeCategory;
 
@@ -56,5 +59,8 @@ public class Employee {
     @SerializedName("site")
     private Site site;
 
+    @Expose
+    @SerializedName("range")
+    private Range range;
 }
 
