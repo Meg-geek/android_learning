@@ -1,5 +1,7 @@
 package com.nsu.db.aircraft.api.model.staff;
 
+import androidx.annotation.NonNull;
+
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import com.nsu.db.aircraft.api.model.company.Site;
@@ -62,5 +64,11 @@ public class Employee {
     @Expose
     @SerializedName("range")
     private Range range;
+
+    @NonNull
+    @Override
+    public String toString() {
+        return String.join(" ", name, surname, employeeCategory);
+    }
 }
 

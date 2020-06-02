@@ -9,6 +9,7 @@ public class AircraftPath {
     public static final String STAFF = "/staff";
     public static final String ACCOUNTING = "/accounting";
     public static final String ENGINEERING_STAFF = "/engineering-staff";
+    public static final String SITE = "/site";
 
     public static final String ADD = "/add";
     public static final String GET_ALL = "/get-all";

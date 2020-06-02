@@ -5,6 +5,7 @@ import com.nsu.db.aircraft.api.rest.ProductApi;
 import com.nsu.db.aircraft.api.rest.accounting.StageApi;
 import com.nsu.db.aircraft.api.rest.company.CompanyApi;
 import com.nsu.db.aircraft.api.rest.company.GuildApi;
+import com.nsu.db.aircraft.api.rest.company.SiteApi;
 import com.nsu.db.aircraft.api.rest.staff.EmployeeApi;
 import com.nsu.db.aircraft.api.rest.staff.EngineerApi;
 import com.nsu.db.aircraft.api.rest.staff.EngineeringStaffApi;
@@ -99,6 +100,10 @@ public class NetworkService {
 
     public WelderApi getWelderApi() {
         return retrofit.create(WelderApi.class);
+    }
+
+    public SiteApi getSiteApi() {
+        return retrofit.create(SiteApi.class);
     }
 }
 

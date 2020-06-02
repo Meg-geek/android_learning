@@ -109,4 +109,8 @@
     <!--Stage detail fragment-->
     <string name="stage_title">Этап изготовления</string>
     <string name="stage_name">Название этапа</string>
+
+    <!--Site detail fragment-->
+    <string name="work_type">Тип работ</string>
+    <string name="site_manager">Начальник участка</string>
 </resources>

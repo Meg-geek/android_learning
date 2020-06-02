@@ -1,5 +1,7 @@
 package com.nsu.db.aircraft.api.model.company;
 
+import androidx.annotation.NonNull;
+
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
@@ -24,4 +26,10 @@ public class Site {
     @Expose
     @SerializedName("guild")
     private Guild guild;
+
+    @NonNull
+    @Override
+    public String toString() {
+        return String.join(" ", workType, "цех", guild.getGuildName());
+    }
 }
