@@ -158,4 +158,24 @@
         android:text="@string/works"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button_delete" />
+
+    <Button
+        android:id="@+id/button_brigades"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/brigades"
+        app:layout_constraintStart_toEndOf="@+id/button_works"
+        app:layout_constraintTop_toBottomOf="@+id/button_delete" />
+
+    <Button
+        android:id="@+id/button_labs"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/labs"
+        app:layout_constraintStart_toEndOf="@+id/button_brigades"
+        app:layout_constraintTop_toBottomOf="@+id/button_delete" />
 </androidx.constraintlayout.widget.ConstraintLayout>

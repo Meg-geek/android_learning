@@ -17,6 +17,8 @@ import static com.nsu.db.aircraft.api.AircraftPath.ADD;
 import static com.nsu.db.aircraft.api.AircraftPath.APP;
 import static com.nsu.db.aircraft.api.AircraftPath.DELETE_BY_ID;
 import static com.nsu.db.aircraft.api.AircraftPath.GET_ALL;
+import static com.nsu.db.aircraft.api.AircraftPath.GET_BY_COMPANY;
+import static com.nsu.db.aircraft.api.AircraftPath.GET_BY_GUILD;
 import static com.nsu.db.aircraft.api.AircraftPath.STAFF;
 import static com.nsu.db.aircraft.api.AircraftPath.UPDATE;
 import static com.nsu.db.aircraft.api.AircraftPath.WELDERS;
@@ -33,4 +35,10 @@ public interface WelderApi {
 
     @PUT(APP + STAFF + WELDERS + UPDATE)
     Call<GeneralResponse<Employee>> update(@Body Employee employee);
+
+    @GET(APP + STAFF + WELDERS + GET_BY_COMPANY)
+    Call<GeneralResponse<List<Employee>>> getByCompany(@Query("companyId") int companyId);
+
+    @GET(APP + STAFF + WELDERS + GET_BY_GUILD)
+    Call<GeneralResponse<List<Employee>>> getByGuild(@Query("guildId") int guildId);
 }

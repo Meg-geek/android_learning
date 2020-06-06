@@ -119,7 +119,7 @@
         app:layout_constraintTop_toBottomOf="@+id/button_without_date" />
 
     <ListView
-        android:id="@+id/products_list"
+        android:id="@+id/list_view"
         android:layout_width="297dp"
         android:layout_height="291dp"
         android:layout_marginTop="8dp"

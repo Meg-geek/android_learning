@@ -12,11 +12,14 @@ import com.nsu.db.aircraft.api.model.company.Company;
 import com.nsu.db.aircraft.api.model.company.Guild;
 import com.nsu.db.aircraft.api.model.company.Site;
 import com.nsu.db.aircraft.api.model.product.Product;
+import com.nsu.db.aircraft.api.model.staff.Employee;
+import com.nsu.db.aircraft.api.model.tests.Equipment;
 import com.nsu.db.aircraft.api.model.tests.Range;
 import com.nsu.db.aircraft.view.FragmentWithFragmentActivity;
 
 import java.util.Calendar;
 import java.util.GregorianCalendar;
+import java.util.List;
 
 import lombok.Setter;
 
@@ -29,6 +32,13 @@ public class ProductRequestDetails extends FragmentWithFragmentActivity {
     private Guild guild;
     private Range range;
     private View view;
+
+    private boolean isEquipmentForm = false;
+    private boolean isProductsForm = false;
+    private boolean isTestersForm = false;
+    private List<Equipment> equipment;
+    private List<Employee> testers;
+    private List<Product> products;
 
     private GregorianCalendar beginDate, endDate;
 

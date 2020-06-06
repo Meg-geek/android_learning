@@ -18,6 +18,8 @@ import static com.nsu.db.aircraft.api.AircraftPath.APP;
 import static com.nsu.db.aircraft.api.AircraftPath.DELETE_BY_ID;
 import static com.nsu.db.aircraft.api.AircraftPath.ENGINEERS;
 import static com.nsu.db.aircraft.api.AircraftPath.GET_ALL;
+import static com.nsu.db.aircraft.api.AircraftPath.GET_BY_COMPANY;
+import static com.nsu.db.aircraft.api.AircraftPath.GET_BY_GUILD;
 import static com.nsu.db.aircraft.api.AircraftPath.STAFF;
 import static com.nsu.db.aircraft.api.AircraftPath.UPDATE;
 
@@ -33,4 +35,10 @@ public interface EngineerApi {
 
     @PUT(APP + STAFF + ENGINEERS + UPDATE)
     Call<GeneralResponse<Employee>> update(@Body Employee employee);
+
+    @GET(APP + STAFF + ENGINEERS + GET_BY_COMPANY)
+    Call<GeneralResponse<List<Employee>>> getByCompany(@Query("companyId") int companyId);
+
+    @GET(APP + STAFF + ENGINEERS + GET_BY_GUILD)
+    Call<GeneralResponse<List<Employee>>> getByGuild(@Query("guildId") int guildId);
 }

@@ -1,6 +1,7 @@
 package com.nsu.db.aircraft.api.rest.staff;
 
 import com.nsu.db.aircraft.api.GeneralResponse;
+import com.nsu.db.aircraft.api.model.company.Site;
 import com.nsu.db.aircraft.api.model.staff.Employee;
 
 import java.util.List;
@@ -17,6 +18,9 @@ import static com.nsu.db.aircraft.api.AircraftPath.ADD;
 import static com.nsu.db.aircraft.api.AircraftPath.APP;
 import static com.nsu.db.aircraft.api.AircraftPath.DELETE_BY_ID;
 import static com.nsu.db.aircraft.api.AircraftPath.GET_ALL;
+import static com.nsu.db.aircraft.api.AircraftPath.GET_BY_COMPANY;
+import static com.nsu.db.aircraft.api.AircraftPath.GET_BY_GUILD;
+import static com.nsu.db.aircraft.api.AircraftPath.GET_BY_SITE;
 import static com.nsu.db.aircraft.api.AircraftPath.MASTER;
 import static com.nsu.db.aircraft.api.AircraftPath.STAFF;
 import static com.nsu.db.aircraft.api.AircraftPath.UPDATE;
@@ -33,4 +37,13 @@ public interface MasterApi {
 
     @PUT(APP + STAFF + MASTER + UPDATE)
     Call<GeneralResponse<Employee>> update(@Body Employee employee);
+
+    @GET(APP + STAFF + MASTER + GET_BY_COMPANY)
+    Call<GeneralResponse<List<Employee>>> getByCompany(@Query("companyId") int companyId);
+
+    @GET(APP + STAFF + MASTER + GET_BY_GUILD)
+    Call<GeneralResponse<List<Employee>>> getByGuild(@Query("guildId") int guildId);
+
+    @POST(APP + STAFF + MASTER + GET_BY_SITE)
+    Call<GeneralResponse<List<Employee>>> getBySite(@Body Site site);
 }

@@ -18,6 +18,9 @@ import static com.nsu.db.aircraft.api.AircraftPath.APP;
 import static com.nsu.db.aircraft.api.AircraftPath.BRIGADES;
 import static com.nsu.db.aircraft.api.AircraftPath.DELETE_BY_ID;
 import static com.nsu.db.aircraft.api.AircraftPath.GET_ALL;
+import static com.nsu.db.aircraft.api.AircraftPath.GET_BY_GUILD_ID;
+import static com.nsu.db.aircraft.api.AircraftPath.GET_BY_PRODUCT_ID;
+import static com.nsu.db.aircraft.api.AircraftPath.GET_BY_SITE_ID;
 import static com.nsu.db.aircraft.api.AircraftPath.STAFF;
 import static com.nsu.db.aircraft.api.AircraftPath.UPDATE;
 
@@ -33,4 +36,13 @@ public interface BrigadeApi {
 
     @PUT(APP + STAFF + BRIGADES + UPDATE)
     Call<GeneralResponse<Brigade>> updateBrigade(@Body Brigade brigade);
+
+    @GET(APP + STAFF + BRIGADES + GET_BY_PRODUCT_ID)
+    Call<GeneralResponse<List<Brigade>>> getByProductId(@Query("productId") int productId);
+
+    @GET(APP + STAFF + BRIGADES + GET_BY_GUILD_ID)
+    Call<GeneralResponse<List<Brigade>>> getByGuildId(@Query("guildId") int guildId);
+
+    @GET(APP + STAFF + BRIGADES + GET_BY_SITE_ID)
+    Call<GeneralResponse<List<Brigade>>> getBySiteId(@Query("siteId") int siteId);
 }

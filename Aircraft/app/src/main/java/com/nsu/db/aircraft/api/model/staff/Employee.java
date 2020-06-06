@@ -79,7 +79,10 @@ public class Employee {
     @NonNull
     @Override
     public String toString() {
-        return String.join(" ", name, surname, employeeCategory);
+        if (employeeCategory != null) {
+            return String.join(" ", name, surname, employeeCategory);
+        }
+        return String.join(" ", name, surname);
     }
 }
 

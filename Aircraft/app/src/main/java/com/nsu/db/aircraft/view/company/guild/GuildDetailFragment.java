@@ -21,6 +21,7 @@ import com.nsu.db.aircraft.network.NetworkService;
 import com.nsu.db.aircraft.view.FragmentWithFragmentActivity;
 import com.nsu.db.aircraft.view.shared.products.ProductRequestDetails;
 import com.nsu.db.aircraft.view.shared.sites.SitesRequestFragment;
+import com.nsu.db.aircraft.view.shared.staff.BrigadeRequestFragment;
 import com.nsu.db.aircraft.view.shared.staff.StaffRequestFragment;
 
 import java.util.ArrayList;
@@ -84,10 +85,11 @@ public class GuildDetailFragment extends FragmentWithFragmentActivity {
         setStartFragmentButton(view, R.id.button_products, new ProductRequestDetails(guild));
         setStartFragmentButton(view, R.id.button_staff, new StaffRequestFragment(guild));
         setStartFragmentButton(view, R.id.button_sites, new SitesRequestFragment(guild));
+        setStartFragmentButton(view, R.id.button_brigades, new BrigadeRequestFragment(guild));
     }
 
     private void setAddGuildButton(View view) {
-        Button addGuildButton = view.findViewById(R.id.button_add_guild);
+        Button addGuildButton = view.findViewById(R.id.button_add_brigade);
         addGuildButton.setOnClickListener(v -> {
             hideKeyboard();
             if (areGuildFieldsCorrect(view)) {
@@ -387,7 +389,7 @@ public class GuildDetailFragment extends FragmentWithFragmentActivity {
         setVisibility(view, R.id.textView9, VISIBLE);
         setVisibility(view, R.id.guild_manager_spinner, VISIBLE);
 
-        setVisibility(view, R.id.button_add_guild, INVISIBLE);
+        setVisibility(view, R.id.button_add_brigade, INVISIBLE);
         setVisibility(view, R.id.button_save_all_guild_changes, INVISIBLE);
         setVisibility(view, R.id.button_delete_detail_guild, VISIBLE);
     }
@@ -397,7 +399,7 @@ public class GuildDetailFragment extends FragmentWithFragmentActivity {
         setVisibility(view, R.id.textView9, INVISIBLE);
         setVisibility(view, R.id.guild_manager_spinner, INVISIBLE);
 
-        setVisibility(view, R.id.button_add_guild, VISIBLE);
+        setVisibility(view, R.id.button_add_brigade, VISIBLE);
         setVisibility(view, R.id.button_save_all_guild_changes, INVISIBLE);
         setVisibility(view, R.id.button_delete_detail_guild, INVISIBLE);
     }

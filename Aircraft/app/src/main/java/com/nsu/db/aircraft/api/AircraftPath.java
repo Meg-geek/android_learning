@@ -63,4 +63,13 @@ public class AircraftPath {
     public static final String GET_NOW_BUILD_BY_GUILD = "/get-now-building-by-guild";
     public static final String GET_NOW_BUILD_BY_SITE = "/get-now-building-by-site";
     public static final String GET_BY_DATE_RANGE = "/get-by-date-interval-and-range";
+
+    public static final String WORKERS = "/workers";
+    public static final String GET_BY_BRIGADE = "/get-by-brigade";
+
+    public static final String GET_BY_GUILD_ID = "/get-by-guild-id";
+    public static final String GET_BY_SITE_ID = "/get-by-site-id";
+    public static final String GET_BY_PRODUCT_ID = "/get-by-product-id";
+
+    public static final String GET_BY_SITE = "/get-by-site";
 }

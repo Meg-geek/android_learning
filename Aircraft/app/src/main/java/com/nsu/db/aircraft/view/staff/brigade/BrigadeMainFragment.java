@@ -4,15 +4,19 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
-import androidx.fragment.app.Fragment;
+import android.widget.Button;
 
 import com.nsu.db.aircraft.R;
+import com.nsu.db.aircraft.api.GeneralResponse;
+import com.nsu.db.aircraft.api.model.staff.Brigade;
+import com.nsu.db.aircraft.network.NetworkService;
+import com.nsu.db.aircraft.view.FragmentWithFragmentActivity;
 
-/**
- * A simple {@link Fragment} subclass.
- */
-public class BrigadeMainFragment extends Fragment {
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
+public class BrigadeMainFragment extends FragmentWithFragmentActivity {
 
     public BrigadeMainFragment() {
         // Required empty public constructor
@@ -22,7 +26,37 @@ public class BrigadeMainFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_brigade_main, container, false);
+        View view = inflater.inflate(R.layout.fragment_brigade_main, container, false);
+        setStartFragmentButton(view, R.id.button_show_brigades_table, new BrigadeTableFragment());
+        setStartFragmentButton(view, R.id.button_brigade_show_all, new BrigadeAllFragment());
+        setCreateButton(view);
+        return view;
+    }
+
+    private void setCreateButton(View view) {
+        Button createButton = view.findViewById(R.id.button_add_brigade);
+        createButton.setOnClickListener(v -> createBrigade());
+    }
+
+    private void createBrigade() {
+        NetworkService.getInstance()
+                .getBrigadeApi()
+                .addBrigade(new Brigade())
+                .enqueue(new Callback<GeneralResponse>() {
+                    @Override
+                    public void onResponse(Call<GeneralResponse> call,
+                                           Response<GeneralResponse> response) {
+                        if (!response.isSuccessful()) {
+                            showError();
+                            return;
+                        }
+                        showText(R.string.brigade_success_create);
+                    }
+
+                    @Override
+                    public void onFailure(Call<GeneralResponse> call, Throwable t) {
+                        showError();
+                    }
+                });
     }
 }

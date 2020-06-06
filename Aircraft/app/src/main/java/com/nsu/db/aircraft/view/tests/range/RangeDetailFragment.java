@@ -14,6 +14,7 @@ import com.nsu.db.aircraft.view.shared.products.ProductRequestDetails;
 public class RangeDetailFragment extends FragmentWithFragmentActivity {
     private Range range;
     private boolean isAddFragment = true;
+    private View view;
 
     public RangeDetailFragment() {
         // Required empty public constructor
@@ -28,8 +29,28 @@ public class RangeDetailFragment extends FragmentWithFragmentActivity {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_range_detail, container, false);
-        setStartFragmentButton(view, R.id.button_products, new ProductRequestDetails(range));
+        view = inflater.inflate(R.layout.fragment_range_detail, container, false);
+        setProductsButton();
+        setEquipmentButton();
+        setTestersButton();
         return view;
+    }
+
+    private void setProductsButton() {
+        ProductRequestDetails productRequestDetails = new ProductRequestDetails(range);
+        productRequestDetails.setProductsForm(true);
+        setStartFragmentButton(view, R.id.button_products, productRequestDetails);
+    }
+
+    private void setEquipmentButton() {
+        ProductRequestDetails productRequestDetails = new ProductRequestDetails(range);
+        productRequestDetails.setEquipmentForm(true);
+        setStartFragmentButton(view, R.id.button_products, productRequestDetails);
+    }
+
+    private void setTestersButton() {
+        ProductRequestDetails productRequestDetails = new ProductRequestDetails(range);
+        productRequestDetails.setTestersForm(true);
+        setStartFragmentButton(view, R.id.button_products, productRequestDetails);
     }
 }

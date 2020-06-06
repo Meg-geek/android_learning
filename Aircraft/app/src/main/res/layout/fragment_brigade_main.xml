@@ -1,14 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:paddingLeft="16dp"
+    android:paddingTop="100dp"
+    android:paddingRight="16dp"
+    android:paddingBottom="16dp"
     tools:context=".view.staff.brigade.BrigadeMainFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <ImageView
+        android:id="@+id/brigade_image"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="200dp"
+        android:contentDescription="@string/brigades_menu_item_text"
+        android:src="@drawable/brigades" />
 
-</FrameLayout>
+    <Button
+        android:id="@+id/button_brigade_show_all"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/brigade_image"
+        android:layout_centerHorizontal="true"
+        android:text="@string/show_all_brigades" />
+
+    <Button
+        android:id="@+id/button_add_brigade"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/button_brigade_show_all"
+        android:layout_alignStart="@id/button_brigade_show_all"
+        android:layout_centerHorizontal="true"
+        android:paddingTop="16dp"
+        android:paddingBottom="16dp"
+        android:text="@string/add_brigade" />
+
+    <Button
+        android:id="@+id/button_show_brigades_table"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/button_add_brigade"
+        android:layout_alignStart="@id/button_brigade_show_all"
+        android:layout_centerHorizontal="true"
+        android:paddingTop="16dp"
+        android:text="@string/button_show_table_text" />
+
+</RelativeLayout>

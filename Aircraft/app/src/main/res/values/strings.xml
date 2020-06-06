@@ -157,4 +157,11 @@
     <string name="sites">Участки</string>
     <string name="works">Работы</string>
 
+    <string name="show_all_brigades">Показать все бригады</string>
+    <string name="add_brigade">Создать бригаду</string>
+    <string name="brigade_success_create">Бригада успешно создана</string>
+    <string name="brigade_structure">Состав бригады</string>
+    <string name="brigades">Бригады</string>
+    <string name="labs">Лаборатории</string>
+    <string name="testers">Испытатели</string>
 </resources>

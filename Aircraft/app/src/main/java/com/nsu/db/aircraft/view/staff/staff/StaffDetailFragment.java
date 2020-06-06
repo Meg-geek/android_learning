@@ -44,7 +44,7 @@ public class StaffDetailFragment extends FragmentWithFragmentActivity {
         // Required empty public constructor
     }
 
-    StaffDetailFragment(Employee employee) {
+    public StaffDetailFragment(Employee employee) {
         this.employee = employee;
         isAddingFragment = false;
     }
