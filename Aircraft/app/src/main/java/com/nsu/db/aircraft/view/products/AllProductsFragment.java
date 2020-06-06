@@ -38,7 +38,14 @@ public class AllProductsFragment extends FragmentWithFragmentActivity {
         View view = inflater.inflate(R.layout.fragment_all_products, container, false);
         setProductsSpinner(view);
         setShowButton(view);
+        setProductsListView(view);
         return view;
+    }
+
+    private void setProductsListView(View view) {
+        ListView productListView = view.findViewById(R.id.product_list_view);
+        productListView.setOnItemClickListener((parent, v, position, id) ->
+                startFragment(new ProductDetailFragment(products.get(position))));
     }
 
     private void setProductsSpinner(View view) {
@@ -73,23 +80,23 @@ public class AllProductsFragment extends FragmentWithFragmentActivity {
         switch (selectedCategory) {
             case Product.ROCKET:
                 productsCall = NetworkService.getInstance()
-                        .getProductJsonApi()
-                        .getAllRockets();
+                        .getRocketApi()
+                        .getAll();
                 break;
             case Product.HANG_GLIDER:
                 productsCall = NetworkService.getInstance()
-                        .getProductJsonApi()
-                        .getAllHangGliders();
+                        .getHangGliderApi()
+                        .getAll();
                 break;
             case Product.HELICOPTER:
                 productsCall = NetworkService.getInstance()
-                        .getProductJsonApi()
-                        .getAllHelicopters();
+                        .getHelicopterApi()
+                        .getAll();
                 break;
             default:
                 productsCall = NetworkService.getInstance()
-                        .getProductJsonApi()
-                        .getAllPlanes();
+                        .getPlaneApi()
+                        .getAll();
                 break;
         }
         productsCall.enqueue(new ProductsCallBack(selectedCategory, isUpdatable));

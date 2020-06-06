@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="16dp"
+    android:paddingTop="100dp"
+    android:paddingRight="16dp"
+    android:paddingBottom="16dp"
+    tools:context=".view.accounting.accounting.ProductAccountingMainFragment">
+
+    <ImageView
+        android:id="@+id/accounting_image"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:contentDescription="@string/accounting_menu_title"
+        android:src="@drawable/accounting" />
+
+    <Button
+        android:id="@+id/button_accounting_show_all"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/accounting_image"
+        android:layout_centerHorizontal="true"
+        android:text="@string/all_accounting" />
+
+    <Button
+        android:id="@+id/button_add_accounting"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/button_accounting_show_all"
+        android:layout_alignStart="@id/button_accounting_show_all"
+        android:layout_centerHorizontal="true"
+        android:paddingTop="16dp"
+        android:paddingBottom="16dp"
+        android:text="@string/add_accounting" />
+
+    <Button
+        android:id="@+id/button_show_accounting_table"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/button_add_accounting"
+        android:layout_alignStart="@id/button_accounting_show_all"
+        android:layout_centerHorizontal="true"
+        android:paddingTop="16dp"
+        android:text="@string/accounting_table" />
+
+</RelativeLayout>

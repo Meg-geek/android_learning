@@ -1,6 +1,7 @@
 package com.nsu.db.aircraft.api.rest.company;
 
 import com.nsu.db.aircraft.api.GeneralResponse;
+import com.nsu.db.aircraft.api.model.company.Guild;
 import com.nsu.db.aircraft.api.model.company.Site;
 import com.nsu.db.aircraft.api.model.staff.Employee;
 
@@ -18,9 +19,13 @@ import static com.nsu.db.aircraft.api.AircraftPath.ADD;
 import static com.nsu.db.aircraft.api.AircraftPath.APP;
 import static com.nsu.db.aircraft.api.AircraftPath.DELETE_BY_ID;
 import static com.nsu.db.aircraft.api.AircraftPath.GET_ALL;
+import static com.nsu.db.aircraft.api.AircraftPath.GET_BY_COMPANY_ID;
+import static com.nsu.db.aircraft.api.AircraftPath.GET_BY_GUILD;
 import static com.nsu.db.aircraft.api.AircraftPath.GET_MANAGERS;
+import static com.nsu.db.aircraft.api.AircraftPath.GET_SITE_MANAGER_BY_SITE_ID;
 import static com.nsu.db.aircraft.api.AircraftPath.SITE;
 import static com.nsu.db.aircraft.api.AircraftPath.UPDATE;
+import static com.nsu.db.aircraft.api.AircraftPath.UPDATE_MANAGER;
 
 public interface SiteApi {
     @GET(APP + SITE + GET_MANAGERS)
@@ -37,4 +42,17 @@ public interface SiteApi {
 
     @DELETE(APP + SITE + DELETE_BY_ID)
     Call<GeneralResponse> deleteById(@Query("siteId") int siteId);
+
+    @PUT(APP + SITE + UPDATE_MANAGER)
+    Call<GeneralResponse> updateSiteManager(@Query("siteId") int siteId,
+                                            @Query("managerId") int newManagerId);
+
+    @GET(APP + SITE + GET_SITE_MANAGER_BY_SITE_ID)
+    Call<GeneralResponse<Employee>> getSiteManager(@Query("siteId") int siteId);
+
+    @POST(APP + SITE + GET_BY_GUILD)
+    Call<GeneralResponse<List<Site>>> getByGuild(@Body Guild guild);
+
+    @GET(APP + SITE + GET_BY_COMPANY_ID)
+    Call<GeneralResponse<List<Site>>> getByCompanyId(@Query("companyId") int companyId);
 }

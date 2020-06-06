@@ -21,6 +21,8 @@ public class ProductsMainFragment extends FragmentWithFragmentActivity {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_products_main, container, false);
         setStartFragmentButton(view, R.id.button_products_show_all, new AllProductsFragment());
+        setStartFragmentButton(view, R.id.button_add_product, new ProductDetailFragment());
+        setStartFragmentButton(view, R.id.button_show_products_table, new ProductTableFragment());
         return view;
     }
 }

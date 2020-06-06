@@ -21,7 +21,7 @@
         android:src="@drawable/site" />
 
     <Button
-        android:id="@+id/button_site_show_all"
+        android:id="@+id/button_accounting_show_all"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/site_image"
@@ -29,22 +29,22 @@
         android:text="@string/button_show_all_sites_text" />
 
     <Button
-        android:id="@+id/button_add_site"
+        android:id="@+id/button_add_accounting"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/button_site_show_all"
-        android:layout_alignStart="@id/button_site_show_all"
+        android:layout_below="@id/button_accounting_show_all"
+        android:layout_alignStart="@id/button_accounting_show_all"
         android:layout_centerHorizontal="true"
         android:paddingTop="16dp"
         android:paddingBottom="16dp"
         android:text="@string/button_add_site_text" />
 
     <Button
-        android:id="@+id/button_show_sites_table"
+        android:id="@+id/button_show_accounting_table"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/button_add_site"
-        android:layout_alignStart="@id/button_site_show_all"
+        android:layout_below="@id/button_add_accounting"
+        android:layout_alignStart="@id/button_accounting_show_all"
         android:layout_centerHorizontal="true"
         android:paddingTop="16dp"
         android:text="@string/button_show_table_text" />

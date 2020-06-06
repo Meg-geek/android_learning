@@ -20,9 +20,9 @@ public class SiteMainFragment extends FragmentWithFragmentActivity {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_site_main, container, false);
-        setStartFragmentButton(view, R.id.button_site_show_all, new SiteAllFragment());
-        setStartFragmentButton(view, R.id.button_add_site, new SiteDetailFragment());
-        setStartFragmentButton(view, R.id.button_show_sites_table, new SiteTableFragment());
+        setStartFragmentButton(view, R.id.button_accounting_show_all, new SiteAllFragment());
+        setStartFragmentButton(view, R.id.button_add_accounting, new SiteDetailFragment());
+        setStartFragmentButton(view, R.id.button_show_accounting_table, new SiteTableFragment());
         return view;
     }
 }

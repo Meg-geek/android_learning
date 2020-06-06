@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.staff.StaffAllFragment">
+    tools:context=".view.staff.staff.StaffAllFragment">
 
 
     <TableLayout
@@ -21,7 +21,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:context=".view.staff.StaffTableFragment">
+        tools:context=".view.staff.staff.StaffTableFragment">
 
     </TableLayout>
 

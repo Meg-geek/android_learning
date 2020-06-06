@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="16dp"
+    android:paddingTop="100dp"
+    android:paddingRight="16dp"
+    android:paddingBottom="16dp"
+    tools:context=".view.tests.range.RangeMainFragment">
+
+    <ImageView
+        android:id="@+id/range_image"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:contentDescription="@string/ranges_table"
+        android:src="@drawable/range" />
+
+    <Button
+        android:id="@+id/button_range_show_all"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/range_image"
+        android:layout_centerHorizontal="true"
+        android:text="@string/show_all_ranges" />
+
+    <Button
+        android:id="@+id/button_add_range"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/button_range_show_all"
+        android:layout_alignStart="@id/button_range_show_all"
+        android:layout_centerHorizontal="true"
+        android:paddingTop="16dp"
+        android:paddingBottom="16dp"
+        android:text="@string/add_range" />
+
+    <Button
+        android:id="@+id/button_show_ranges_table"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/button_add_range"
+        android:layout_alignStart="@id/button_range_show_all"
+        android:layout_centerHorizontal="true"
+        android:paddingTop="16dp"
+        android:text="@string/ranges_table" />
+</RelativeLayout>

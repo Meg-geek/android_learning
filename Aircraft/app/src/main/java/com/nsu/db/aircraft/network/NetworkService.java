@@ -1,11 +1,17 @@
 package com.nsu.db.aircraft.network;
 
 
-import com.nsu.db.aircraft.api.rest.ProductApi;
+import com.nsu.db.aircraft.api.rest.accounting.AccountingApi;
 import com.nsu.db.aircraft.api.rest.accounting.StageApi;
 import com.nsu.db.aircraft.api.rest.company.CompanyApi;
 import com.nsu.db.aircraft.api.rest.company.GuildApi;
 import com.nsu.db.aircraft.api.rest.company.SiteApi;
+import com.nsu.db.aircraft.api.rest.products.HangGliderApi;
+import com.nsu.db.aircraft.api.rest.products.HelicopterApi;
+import com.nsu.db.aircraft.api.rest.products.PlaneApi;
+import com.nsu.db.aircraft.api.rest.products.ProductApi;
+import com.nsu.db.aircraft.api.rest.products.RocketApi;
+import com.nsu.db.aircraft.api.rest.staff.BrigadeApi;
 import com.nsu.db.aircraft.api.rest.staff.EmployeeApi;
 import com.nsu.db.aircraft.api.rest.staff.EngineerApi;
 import com.nsu.db.aircraft.api.rest.staff.EngineeringStaffApi;
@@ -16,6 +22,7 @@ import com.nsu.db.aircraft.api.rest.staff.TechnicianApi;
 import com.nsu.db.aircraft.api.rest.staff.TesterApi;
 import com.nsu.db.aircraft.api.rest.staff.TurnerApi;
 import com.nsu.db.aircraft.api.rest.staff.WelderApi;
+import com.nsu.db.aircraft.api.rest.tests.RangeApi;
 
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
@@ -104,6 +111,34 @@ public class NetworkService {
 
     public SiteApi getSiteApi() {
         return retrofit.create(SiteApi.class);
+    }
+
+    public BrigadeApi getBrigadeApi() {
+        return retrofit.create(BrigadeApi.class);
+    }
+
+    public RangeApi getRangeApi() {
+        return retrofit.create(RangeApi.class);
+    }
+
+    public AccountingApi getAccountingApi() {
+        return retrofit.create(AccountingApi.class);
+    }
+
+    public HangGliderApi getHangGliderApi() {
+        return retrofit.create(HangGliderApi.class);
+    }
+
+    public HelicopterApi getHelicopterApi() {
+        return retrofit.create(HelicopterApi.class);
+    }
+
+    public RocketApi getRocketApi() {
+        return retrofit.create(RocketApi.class);
+    }
+
+    public PlaneApi getPlaneApi() {
+        return retrofit.create(PlaneApi.class);
     }
 }
 

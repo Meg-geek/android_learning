@@ -1,4 +1,4 @@
-package com.nsu.db.aircraft.view.staff;
+package com.nsu.db.aircraft.view.staff.staff;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;

@@ -1,4 +1,4 @@
-package com.nsu.db.aircraft.view.staff;
+package com.nsu.db.aircraft.view.staff.staff;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -22,6 +22,7 @@ public class StaffMainFragment extends FragmentWithFragmentActivity {
         View view = inflater.inflate(R.layout.fragment_staff_main, container, false);
         setStartFragmentButton(view, R.id.button_staff_show_all, new StaffAllFragment());
         setStartFragmentButton(view, R.id.button_show_staff_table, new StaffTableFragment());
+        setStartFragmentButton(view, R.id.button_add_staff, new StaffDetailFragment());
         return view;
     }
 }

@@ -47,6 +47,9 @@
             <item
                 android:id="@+id/tests_menu_item"
                 android:title="@string/tests_title" />
+            <item
+                android:id="@+id/equipment_menu_item"
+                android:title="@string/equipment" />
 
         </menu>
     </item>

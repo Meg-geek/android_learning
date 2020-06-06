@@ -56,6 +56,7 @@ public class StageAllFragment extends FragmentWithFragmentActivity {
                                    Response<GeneralResponse<List<Stage>>> response) {
                 if (!response.isSuccessful()) {
                     showError();
+                    return;
                 }
                 stages = response.body().getData();
                 updateStagesList(view);

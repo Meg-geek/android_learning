@@ -4,7 +4,9 @@ import android.app.Activity;
 import android.content.Context;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
@@ -15,6 +17,8 @@ import androidx.fragment.app.FragmentTransaction;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 import com.nsu.db.aircraft.R;
+
+import java.util.List;
 
 public class FragmentWithFragmentActivity extends Fragment {
     protected final static String WRONG_NAME_INPUT = "Неправильно введено название: " +
@@ -90,5 +94,14 @@ public class FragmentWithFragmentActivity extends Fragment {
     protected void setEnabledInputEditText(View view, int inputEditTextId, boolean enabled) {
         TextInputEditText stageName = view.findViewById(inputEditTextId);
         stageName.setEnabled(enabled);
+    }
+
+    protected void updateSpinner(View view, int spinnerId, List<String> resources) {
+        Spinner spinner = view.findViewById(spinnerId);
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(getContext(),
+                android.R.layout.simple_spinner_item,
+                resources);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner.setAdapter(adapter);
     }
 }

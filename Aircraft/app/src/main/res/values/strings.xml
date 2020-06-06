@@ -113,4 +113,48 @@
     <!--Site detail fragment-->
     <string name="work_type">Тип работ</string>
     <string name="site_manager">Начальник участка</string>
+
+    <!--Staff detail fragment-->
+    <string name="name">Имя</string>
+    <string name="surname">Фамилия</string>
+    <string name="specialty">Специальность</string>
+    <string name="brigade">Бригада</string>
+
+    <!--Range fragments-->
+    <string name="show_all_ranges">Показать все лаборатории</string>
+    <string name="add_range">Добавить лабораторию</string>
+    <string name="ranges_table">Таблица лабораторий</string>
+    <string name="element_name">Название</string>
+    <string name="guilds">Цеха</string>
+    <string name="add_guilds">Добавить цеха</string>
+    <string name="change_guilds">Изменить цеха</string>
+
+    <string name="equipment">Оборудование</string>
+
+    <string name="all_accounting">Весь учет</string>
+    <string name="accounting_table">Таблица учета</string>
+    <string name="add_accounting">Добавить позицию учета</string>
+    <string name="product">Изделие</string>
+    <string name="stage">Стадия</string>
+    <string name="site">Участок</string>
+    <string name="test">Испытание</string>
+    <string name="begin_time">Дата начала</string>
+    <string name="end_time">Дата окончания</string>
+    <string name="date_hint">yyyy-mm-dd hh:mm:ss</string>
+    <string name="category">Категория</string>
+    <string name="guild">Цех</string>
+    <string name="type">Тип</string>
+    <string name="weight">Вес</string>
+
+    <string name="set_date">Установить</string>
+    <string name="products">Продукция</string>
+    <string name="not_set">Не установлена</string>
+    <string name="show_types">Показать виды</string>
+    <string name="build_now">Собираются сейчас</string>
+    <string name="choose_date">Выберите дату</string>
+    <string name="show_by_date">Показать по датам</string>
+    <string name="tested_products">Тестируемая продукция</string>
+    <string name="sites">Участки</string>
+    <string name="works">Работы</string>
+
 </resources>

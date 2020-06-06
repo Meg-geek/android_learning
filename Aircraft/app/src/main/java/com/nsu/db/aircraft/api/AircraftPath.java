@@ -10,6 +10,8 @@ public class AircraftPath {
     public static final String ACCOUNTING = "/accounting";
     public static final String ENGINEERING_STAFF = "/engineering-staff";
     public static final String SITE = "/site";
+    public static final String TESTS = "/tests";
+    public static final String RANGE = "/range";
 
     public static final String ADD = "/add";
     public static final String GET_ALL = "/get-all";
@@ -44,4 +46,21 @@ public class AircraftPath {
     public static final String GET_FREE_MANAGERS_FOR_GUILD = "/get-free-managers-for-guild";
 
     public static final String ALL = "/all";
+    public static final String GET_FREE_MANAGERS_FOR_SITE = "/get-free-managers-for-site";
+    public static final String UPDATE_MANAGER = "/update-manager";
+    public static final String GET_SITE_MANAGER_BY_SITE_ID = "/get-site-manager-by-site-id";
+
+    public static final String GET_BY_GUILD = "/get-by-guild";
+    public static final String GET_WORK_TYPES_BY_PRODUCT_ID = "/get-work-types-by-product-id";
+    public static final String GET_BY_COMPANY_ID = "/get-by-company-id";
+    public static final String GET_TYPES_BY_COMPANY_ID = "/get-types-by-company-id";
+    public static final String GET_TYPES_BY_GUILD_ID = "/get-types-by-guild-id";
+
+    public static final String GET_BY_DATE_COMPANY = "/get-by-date-interval-and-company";
+    public static final String GET_BY_DATE_GUILD = "/get-by-date-interval-and-guild";
+    public static final String GET_BY_DATE_SITE = "/get-by-date-interval-and-site";
+    public static final String GET_NOW_BUILD_BY_COMPANY = "/get-now-building-by-company";
+    public static final String GET_NOW_BUILD_BY_GUILD = "/get-now-building-by-guild";
+    public static final String GET_NOW_BUILD_BY_SITE = "/get-now-building-by-site";
+    public static final String GET_BY_DATE_RANGE = "/get-by-date-interval-and-range";
 }

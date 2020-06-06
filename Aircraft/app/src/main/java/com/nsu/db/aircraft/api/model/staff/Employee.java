@@ -33,11 +33,22 @@ public class Employee {
     public final static String MASTER = "мастер";
     public final static String ALL = "все";
 
+    public static final String WORKER = "рабочий";
+    public static final String ENGINEERING_STAFF = "инженерно-технический персонал";
+
     public static final List<String> employeeCategories = asList(TESTER,
             ENGINEER, TECHNICIAN, WELDER, TURNER, PICKER, LOCKSMITH, GUILD_MANAGER,
             SITE_MANAGER, MASTER, ALL);
     public static final List<String> employeeTables = asList(TESTER,
             ENGINEER, TECHNICIAN, WELDER, TURNER, PICKER, LOCKSMITH, MASTER, ALL);
+
+    public static final List<String> workers = asList(WELDER, TURNER, PICKER, LOCKSMITH);
+    public static final List<String> engineeringStaff = asList(ENGINEER, TECHNICIAN);
+    public static final List<String> specialities = asList(WORKER,
+            ENGINEERING_STAFF, TESTER);
+    public static final List<String> categoriesAndMaster = asList(
+            ENGINEER, TECHNICIAN, WELDER, TURNER, PICKER, LOCKSMITH,
+            MASTER, ALL);
 
     private String employeeCategory;
 

@@ -24,6 +24,9 @@ import com.nsu.db.aircraft.api.model.company.Guild;
 import com.nsu.db.aircraft.network.NetworkService;
 import com.nsu.db.aircraft.view.FragmentWithFragmentActivity;
 import com.nsu.db.aircraft.view.company.guild.GuildDetailFragment;
+import com.nsu.db.aircraft.view.shared.products.ProductRequestDetails;
+import com.nsu.db.aircraft.view.shared.sites.SitesRequestFragment;
+import com.nsu.db.aircraft.view.shared.staff.StaffRequestFragment;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -56,6 +59,9 @@ public class CompanyDetailFragment extends FragmentWithFragmentActivity {
         setDeleteButton(view);
         fillGuilds(view);
         setGuildsListView(view);
+        setStartFragmentButton(view, R.id.button_products, new ProductRequestDetails(company));
+        setStartFragmentButton(view, R.id.button_staff, new StaffRequestFragment(company));
+        setStartFragmentButton(view, R.id.button_sites, new SitesRequestFragment(company));
         return view;
     }
 

@@ -19,6 +19,9 @@ import com.nsu.db.aircraft.api.model.company.Guild;
 import com.nsu.db.aircraft.api.model.staff.Employee;
 import com.nsu.db.aircraft.network.NetworkService;
 import com.nsu.db.aircraft.view.FragmentWithFragmentActivity;
+import com.nsu.db.aircraft.view.shared.products.ProductRequestDetails;
+import com.nsu.db.aircraft.view.shared.sites.SitesRequestFragment;
+import com.nsu.db.aircraft.view.shared.staff.StaffRequestFragment;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -72,6 +75,15 @@ public class GuildDetailFragment extends FragmentWithFragmentActivity {
         setVisibilityForAdd(view);
         sendCompaniesRequest(view);
         setAddGuildButton(view);
+    }
+
+    private void setDetailFragment(View view) {
+        setVisibilityForDetailChange(view);
+        updateFields(view);
+        setDetailButtons(view);
+        setStartFragmentButton(view, R.id.button_products, new ProductRequestDetails(guild));
+        setStartFragmentButton(view, R.id.button_staff, new StaffRequestFragment(guild));
+        setStartFragmentButton(view, R.id.button_sites, new SitesRequestFragment(guild));
     }
 
     private void setAddGuildButton(View view) {
@@ -215,11 +227,6 @@ public class GuildDetailFragment extends FragmentWithFragmentActivity {
         Toast.makeText(getContext(), errorText, Toast.LENGTH_LONG).show();
     }
 
-    private void setDetailFragment(View view) {
-        setVisibilityForDetailChange(view);
-        updateFields(view);
-        setDetailButtons(view);
-    }
 
     private void setDetailButtons(View view) {
         setDeleteButton(view);
