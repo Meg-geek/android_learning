@@ -8,14 +8,18 @@ import android.view.ViewGroup;
 import androidx.fragment.app.Fragment;
 
 import com.nsu.db.aircraft.R;
+import com.nsu.db.aircraft.api.model.tests.Equipment;
 
-/**
- * A simple {@link Fragment} subclass.
- */
+
 public class EquipmentDetailFragment extends Fragment {
+    private Equipment equipment;
 
     public EquipmentDetailFragment() {
         // Required empty public constructor
+    }
+
+    public EquipmentDetailFragment(Equipment equipment) {
+        this.equipment = equipment;
     }
 
 

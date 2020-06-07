@@ -87,7 +87,7 @@ public class StaffRequestFragment extends FragmentWithFragmentActivity {
     }
 
     private void setShowButton() {
-        Button showButton = view.findViewById(R.id.button);
+        Button showButton = view.findViewById(R.id.button_show_by_dates);
         showButton.setOnClickListener(v ->
                 sendStaffRequest(getSpinnerValue(), true));
     }

@@ -1,7 +1,7 @@
-package com.nsu.db.aircraft.api.rest.staff;
+package com.nsu.db.aircraft.api.rest.tests;
 
 import com.nsu.db.aircraft.api.GeneralResponse;
-import com.nsu.db.aircraft.api.model.staff.Employee;
+import com.nsu.db.aircraft.api.model.tests.Equipment;
 
 import java.util.List;
 
@@ -16,71 +16,63 @@ import retrofit2.http.Query;
 import static com.nsu.db.aircraft.api.AircraftPath.ADD;
 import static com.nsu.db.aircraft.api.AircraftPath.APP;
 import static com.nsu.db.aircraft.api.AircraftPath.DELETE_BY_ID;
+import static com.nsu.db.aircraft.api.AircraftPath.EQUIPMENT;
 import static com.nsu.db.aircraft.api.AircraftPath.GET_ALL;
-import static com.nsu.db.aircraft.api.AircraftPath.GET_BY_COMPANY;
 import static com.nsu.db.aircraft.api.AircraftPath.GET_BY_DATE_PRODUCT_RANGE;
 import static com.nsu.db.aircraft.api.AircraftPath.GET_BY_DATE_RANGE;
 import static com.nsu.db.aircraft.api.AircraftPath.GET_BY_DATE_RANGE_HANG_GLIDERS;
 import static com.nsu.db.aircraft.api.AircraftPath.GET_BY_DATE_RANGE_HELICOPTERS;
 import static com.nsu.db.aircraft.api.AircraftPath.GET_BY_DATE_RANGE_PLANES;
 import static com.nsu.db.aircraft.api.AircraftPath.GET_BY_DATE_RANGE_ROCKETS;
-import static com.nsu.db.aircraft.api.AircraftPath.GET_BY_GUILD;
-import static com.nsu.db.aircraft.api.AircraftPath.STAFF;
-import static com.nsu.db.aircraft.api.AircraftPath.TESTERS;
+import static com.nsu.db.aircraft.api.AircraftPath.TESTS;
 import static com.nsu.db.aircraft.api.AircraftPath.UPDATE;
 
-public interface TesterApi {
-    @POST(APP + STAFF + TESTERS + ADD)
-    Call<GeneralResponse> add(@Body Employee employee);
+public interface EquipmentApi {
+    @POST(APP + TESTS + EQUIPMENT + ADD)
+    Call<GeneralResponse> add(@Body Equipment equipment);
 
-    @DELETE(APP + STAFF + TESTERS + DELETE_BY_ID)
-    Call<GeneralResponse> deleteById(@Query("id") int id);
+    @DELETE(APP + TESTS + EQUIPMENT + DELETE_BY_ID)
+    Call<GeneralResponse> deleteById(@Query("equipmentId") int id);
 
-    @GET(APP + STAFF + TESTERS + GET_ALL)
-    Call<GeneralResponse<List<Employee>>> getAll();
+    @GET(APP + TESTS + EQUIPMENT + GET_ALL)
+    Call<GeneralResponse<List<Equipment>>> getAll();
 
-    @PUT(APP + STAFF + TESTERS + UPDATE)
-    Call<GeneralResponse<Employee>> update(@Body Employee employee);
+    @PUT(APP + TESTS + EQUIPMENT + UPDATE)
+    Call<GeneralResponse<Equipment>> update(@Body Equipment equipment);
 
-    @GET(APP + STAFF + TESTERS + GET_BY_COMPANY)
-    Call<GeneralResponse<List<Employee>>> getByCompany(@Query("companyId") int companyId);
-
-    @GET(APP + STAFF + TESTERS + GET_BY_GUILD)
-    Call<GeneralResponse<List<Employee>>> getByGuild(@Query("guildId") int guildId);
-
-    @GET(APP + STAFF + TESTERS + GET_BY_DATE_PRODUCT_RANGE)
-    Call<GeneralResponse<List<Employee>>> getByDateAndProductAndRange(
+    @GET(APP + TESTS + EQUIPMENT + GET_BY_DATE_PRODUCT_RANGE)
+    Call<GeneralResponse<List<Equipment>>> getByDateAndProductAndRange(
             @Query("productId") int productId,
             @Query("rangeId") int rangeId,
             @Query("beginDate") long beginDate,
             @Query("endDate") long endDate);
 
-    @GET(APP + STAFF + TESTERS + GET_BY_DATE_RANGE_HANG_GLIDERS)
-    Call<GeneralResponse<List<Employee>>> getByDateAndRangeAndHangGliders(
+    @GET(APP + TESTS + EQUIPMENT + GET_BY_DATE_RANGE_HANG_GLIDERS)
+    Call<GeneralResponse<List<Equipment>>> getByDateAndRangeAndHangGliders(
             @Query("rangeId") int rangeId,
             @Query("beginDate") long beginDate,
             @Query("endDate") long endDate);
 
-    @GET(APP + STAFF + TESTERS + GET_BY_DATE_RANGE_HELICOPTERS)
-    Call<GeneralResponse<List<Employee>>> getByDateAndRangeAndHelicopters(
+    @GET(APP + TESTS + EQUIPMENT + GET_BY_DATE_RANGE_HELICOPTERS)
+    Call<GeneralResponse<List<Equipment>>> getByDateAndRangeAndHelicopters(
             @Query("rangeId") int rangeId,
             @Query("beginDate") long beginDate,
             @Query("endDate") long endDate);
 
-    @GET(APP + STAFF + TESTERS + GET_BY_DATE_RANGE_ROCKETS)
-    Call<GeneralResponse<List<Employee>>> getByDateAndRangeAndRockets(
+    @GET(APP + TESTS + EQUIPMENT + GET_BY_DATE_RANGE_ROCKETS)
+    Call<GeneralResponse<List<Equipment>>> getByDateAndRangeAndRockets(
             @Query("rangeId") int rangeId,
             @Query("beginDate") long beginDate,
             @Query("endDate") long endDate);
 
-    @GET(APP + STAFF + TESTERS + GET_BY_DATE_RANGE_PLANES)
-    Call<GeneralResponse<List<Employee>>> getByDateAndRangeAndPlanes(
+    @GET(APP + TESTS + EQUIPMENT + GET_BY_DATE_RANGE_PLANES)
+    Call<GeneralResponse<List<Equipment>>> getByDateAndRangeAndPlanes(
             @Query("rangeId") int rangeId,
             @Query("beginDate") long beginDate,
             @Query("endDate") long endDate);
 
-    @GET(APP + STAFF + TESTERS + GET_BY_DATE_RANGE)
-    Call<GeneralResponse<List<Employee>>> getByDateAndRange(
+    @GET(APP + TESTS + EQUIPMENT + GET_BY_DATE_RANGE)
+    Call<GeneralResponse<List<Equipment>>> getByDateAndRange(
             @Query("rangeId") int rangeId,
             @Query("beginDate") long beginDate,
             @Query("endDate") long endDate);

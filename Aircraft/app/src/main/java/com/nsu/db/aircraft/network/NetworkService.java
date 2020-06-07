@@ -23,6 +23,7 @@ import com.nsu.db.aircraft.api.rest.staff.TesterApi;
 import com.nsu.db.aircraft.api.rest.staff.TurnerApi;
 import com.nsu.db.aircraft.api.rest.staff.WelderApi;
 import com.nsu.db.aircraft.api.rest.staff.WorkerApi;
+import com.nsu.db.aircraft.api.rest.tests.EquipmentApi;
 import com.nsu.db.aircraft.api.rest.tests.RangeApi;
 
 import okhttp3.OkHttpClient;
@@ -144,6 +145,10 @@ public class NetworkService {
 
     public WorkerApi getWorkerApi() {
         return retrofit.create(WorkerApi.class);
+    }
+
+    public EquipmentApi getEquipmentApi() {
+        return retrofit.create(EquipmentApi.class);
     }
 }
 

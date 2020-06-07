@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import com.nsu.db.aircraft.R;
 import com.nsu.db.aircraft.api.model.product.Product;
 import com.nsu.db.aircraft.view.FragmentWithFragmentActivity;
+import com.nsu.db.aircraft.view.shared.products.AboutProductDetailsRequest;
 import com.nsu.db.aircraft.view.shared.sites.WorkTypesRequestFragment;
 import com.nsu.db.aircraft.view.shared.staff.BrigadeRequestFragment;
 import com.nsu.db.aircraft.view.shared.tests.RangesRequestFragment;
@@ -48,5 +49,9 @@ public class ProductDetailFragment extends FragmentWithFragmentActivity {
         setStartFragmentButton(view, R.id.button_works, new WorkTypesRequestFragment(product));
         setStartFragmentButton(view, R.id.button_brigades, new BrigadeRequestFragment(product));
         setStartFragmentButton(view, R.id.button_labs, new RangesRequestFragment(product));
+        setStartFragmentButton(view, R.id.button_equipment,
+                new AboutProductDetailsRequest(product, true, false));
+        setStartFragmentButton(view, R.id.button_testers,
+                new AboutProductDetailsRequest(product, false, true));
     }
 }

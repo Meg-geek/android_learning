@@ -72,4 +72,16 @@ public class AircraftPath {
     public static final String GET_BY_PRODUCT_ID = "/get-by-product-id";
 
     public static final String GET_BY_SITE = "/get-by-site";
+
+    public static final String EQUIPMENT = "/equipment";
+    public static final String GET_BY_DATE_PRODUCT_RANGE =
+            "/get-by-date-interval-and-product-and-range";
+    public static final String GET_BY_DATE_RANGE_HANG_GLIDERS =
+            "/get-by-date-interval-and-range-and-hang-glider";
+    public static final String GET_BY_DATE_RANGE_HELICOPTERS =
+            "/get-by-date-interval-and-range-and-helicopter";
+    public static final String GET_BY_DATE_RANGE_PLANES =
+            "/get-by-date-interval-and-range-and-plane";
+    public static final String GET_BY_DATE_RANGE_ROCKETS =
+            "/get-by-date-interval-and-range-and-rocket";
 }

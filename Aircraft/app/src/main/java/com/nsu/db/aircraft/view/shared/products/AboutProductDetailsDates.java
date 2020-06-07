@@ -8,31 +8,27 @@ import android.widget.Button;
 import android.widget.DatePicker;
 
 import com.nsu.db.aircraft.R;
-import com.nsu.db.aircraft.api.model.company.Company;
-import com.nsu.db.aircraft.api.model.company.Guild;
-import com.nsu.db.aircraft.api.model.company.Site;
+import com.nsu.db.aircraft.api.model.product.Product;
 import com.nsu.db.aircraft.api.model.tests.Range;
 import com.nsu.db.aircraft.view.FragmentWithFragmentActivity;
 
 import java.util.Calendar;
 import java.util.GregorianCalendar;
+import java.util.List;
 
 import lombok.Setter;
 
 @Setter
-public class SetDateFragment extends FragmentWithFragmentActivity {
-    private View view;
-    private Company company;
-    private Site site;
-    private Guild guild;
-    private Range range;
+public class AboutProductDetailsDates extends FragmentWithFragmentActivity {
+    private Product product;
+    private List<Range> ranges;
     private boolean isEquipmentForm = false;
-    private boolean isProductsForm = false;
     private boolean isTestersForm = false;
+    private boolean isBeginDate = false;
     private GregorianCalendar beginDate, endDate;
-    private boolean isBeginDate = true;
+    private View view;
 
-    public SetDateFragment() {
+    public AboutProductDetailsDates() {
         // Required empty public constructor
     }
 
@@ -43,7 +39,8 @@ public class SetDateFragment extends FragmentWithFragmentActivity {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        view = inflater.inflate(R.layout.fragment_set_date, container, false);
+        view = inflater.inflate(R.layout.fragment_about_product_details_dates,
+                container, false);
         setDateIfPresent();
         Button setButton = view.findViewById(R.id.button_set);
         setButton.setOnClickListener(v -> createAndStartProductRequestDetails());
@@ -52,15 +49,12 @@ public class SetDateFragment extends FragmentWithFragmentActivity {
 
     private void createAndStartProductRequestDetails() {
         getDate();
-        ProductRequestDetails productRequestDetails = new ProductRequestDetails();
+        AboutProductDetailsRequest productRequestDetails = new AboutProductDetailsRequest();
         productRequestDetails.setBeginDate(beginDate);
         productRequestDetails.setEndDate(endDate);
-        productRequestDetails.setCompany(company);
-        productRequestDetails.setGuild(guild);
-        productRequestDetails.setSite(site);
-        productRequestDetails.setRange(range);
-        productRequestDetails.setProductsForm(isProductsForm);
         productRequestDetails.setEquipmentForm(isEquipmentForm);
+        productRequestDetails.setProduct(product);
+        productRequestDetails.setRanges(ranges);
         productRequestDetails.setTestersForm(isTestersForm);
         startFragment(productRequestDetails);
     }
@@ -101,12 +95,5 @@ public class SetDateFragment extends FragmentWithFragmentActivity {
         } else {
             endDate = gregorianCalendar;
         }
-    }
-
-    private boolean areCorrectDates() {
-        if (beginDate == null || endDate == null) {
-            return true;
-        }
-        return beginDate.before(endDate);
     }
 }

@@ -45,12 +45,12 @@ public class RangeDetailFragment extends FragmentWithFragmentActivity {
     private void setEquipmentButton() {
         ProductRequestDetails productRequestDetails = new ProductRequestDetails(range);
         productRequestDetails.setEquipmentForm(true);
-        setStartFragmentButton(view, R.id.button_products, productRequestDetails);
+        setStartFragmentButton(view, R.id.button_equipment, productRequestDetails);
     }
 
     private void setTestersButton() {
         ProductRequestDetails productRequestDetails = new ProductRequestDetails(range);
         productRequestDetails.setTestersForm(true);
-        setStartFragmentButton(view, R.id.button_products, productRequestDetails);
+        setStartFragmentButton(view, R.id.button_testers, productRequestDetails);
     }
 }
