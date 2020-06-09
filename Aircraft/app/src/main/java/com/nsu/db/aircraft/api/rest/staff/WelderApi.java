@@ -19,6 +19,7 @@ import static com.nsu.db.aircraft.api.AircraftPath.DELETE_BY_ID;
 import static com.nsu.db.aircraft.api.AircraftPath.GET_ALL;
 import static com.nsu.db.aircraft.api.AircraftPath.GET_BY_COMPANY;
 import static com.nsu.db.aircraft.api.AircraftPath.GET_BY_GUILD;
+import static com.nsu.db.aircraft.api.AircraftPath.GET_WITHOUT_BRIGADE;
 import static com.nsu.db.aircraft.api.AircraftPath.STAFF;
 import static com.nsu.db.aircraft.api.AircraftPath.UPDATE;
 import static com.nsu.db.aircraft.api.AircraftPath.WELDERS;
@@ -41,4 +42,7 @@ public interface WelderApi {
 
     @GET(APP + STAFF + WELDERS + GET_BY_GUILD)
     Call<GeneralResponse<List<Employee>>> getByGuild(@Query("guildId") int guildId);
+
+    @GET(APP + STAFF + WELDERS + GET_WITHOUT_BRIGADE)
+    Call<GeneralResponse<List<Employee>>> getFreeWorkers();
 }

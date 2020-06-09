@@ -2,6 +2,7 @@ package com.nsu.db.aircraft.api.rest.staff;
 
 import com.nsu.db.aircraft.api.GeneralResponse;
 import com.nsu.db.aircraft.api.model.staff.Brigade;
+import com.nsu.db.aircraft.api.model.staff.Employee;
 
 import java.util.List;
 
@@ -21,12 +22,15 @@ import static com.nsu.db.aircraft.api.AircraftPath.GET_ALL;
 import static com.nsu.db.aircraft.api.AircraftPath.GET_BY_GUILD_ID;
 import static com.nsu.db.aircraft.api.AircraftPath.GET_BY_PRODUCT_ID;
 import static com.nsu.db.aircraft.api.AircraftPath.GET_BY_SITE_ID;
+import static com.nsu.db.aircraft.api.AircraftPath.GET_FOREMAN;
+import static com.nsu.db.aircraft.api.AircraftPath.SET_FOREMAN;
+import static com.nsu.db.aircraft.api.AircraftPath.SET_SITE;
 import static com.nsu.db.aircraft.api.AircraftPath.STAFF;
 import static com.nsu.db.aircraft.api.AircraftPath.UPDATE;
 
 public interface BrigadeApi {
     @POST(APP + STAFF + BRIGADES + ADD)
-    Call<GeneralResponse> addBrigade(@Body Brigade brigade);
+    Call<GeneralResponse<Brigade>> addBrigade(@Body Brigade brigade);
 
     @DELETE(APP + STAFF + BRIGADES + DELETE_BY_ID)
     Call<GeneralResponse> deleteById(@Query("id") int id);
@@ -45,4 +49,15 @@ public interface BrigadeApi {
 
     @GET(APP + STAFF + BRIGADES + GET_BY_SITE_ID)
     Call<GeneralResponse<List<Brigade>>> getBySiteId(@Query("siteId") int siteId);
+
+    @PUT(APP + STAFF + BRIGADES + SET_SITE)
+    Call<GeneralResponse> setSite(@Query("brigadeId") int brigadeId,
+                                  @Query("siteId") int siteId);
+
+    @PUT(APP + STAFF + BRIGADES + SET_FOREMAN)
+    Call<GeneralResponse> setForeman(@Query("brigadeId") int brigadeId,
+                                     @Query("staffId") int foremanId);
+
+    @GET(APP + STAFF + BRIGADES + GET_FOREMAN)
+    Call<GeneralResponse<Employee>> getForeman(@Query("brigadeId") int brigadeId);
 }

@@ -19,6 +19,7 @@ import static com.nsu.db.aircraft.api.AircraftPath.ADD;
 import static com.nsu.db.aircraft.api.AircraftPath.APP;
 import static com.nsu.db.aircraft.api.AircraftPath.DELETE_BY_ID;
 import static com.nsu.db.aircraft.api.AircraftPath.GET_ALL;
+import static com.nsu.db.aircraft.api.AircraftPath.GET_BY_BRIGADE_ID;
 import static com.nsu.db.aircraft.api.AircraftPath.GET_BY_COMPANY_ID;
 import static com.nsu.db.aircraft.api.AircraftPath.GET_BY_GUILD;
 import static com.nsu.db.aircraft.api.AircraftPath.GET_MANAGERS;
@@ -55,4 +56,7 @@ public interface SiteApi {
 
     @GET(APP + SITE + GET_BY_COMPANY_ID)
     Call<GeneralResponse<List<Site>>> getByCompanyId(@Query("companyId") int companyId);
+
+    @GET(APP + SITE + GET_BY_BRIGADE_ID)
+    Call<GeneralResponse<Site>> getByBrigadeId(@Query("brigadeId") int brigadeId);
 }

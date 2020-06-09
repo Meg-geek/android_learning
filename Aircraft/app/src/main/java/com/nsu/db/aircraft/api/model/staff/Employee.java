@@ -87,5 +87,9 @@ public class Employee {
         }
         return String.join(" ", name, surname);
     }
+
+    public boolean isEmpty() {
+        return name == null || name.isEmpty();
+    }
 }
 

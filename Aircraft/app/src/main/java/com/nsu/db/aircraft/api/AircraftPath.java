@@ -84,4 +84,13 @@ public class AircraftPath {
             "/get-by-date-interval-and-range-and-plane";
     public static final String GET_BY_DATE_RANGE_ROCKETS =
             "/get-by-date-interval-and-range-and-rocket";
+    public static final String GET_WITHOUT_BRIGADE = "/get-without-brigade";
+
+    public static final String SET_SITE = "/set-site";
+    public static final String SET_FOREMAN = "/set-foreman";
+    public static final String SET_BRIGADE = "/set-brigade";
+
+    public static final String GET_FOREMAN = "/get-foreman";
+
+    public static final String GET_BY_BRIGADE_ID = "/get-by-brigade-id";
 }
