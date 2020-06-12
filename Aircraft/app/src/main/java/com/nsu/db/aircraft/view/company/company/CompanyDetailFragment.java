@@ -183,6 +183,7 @@ public class CompanyDetailFragment extends FragmentWithFragmentActivity {
                             }
                             if (response.body().getStatus().equals(Status.OK)) {
                                 showToast(R.string.success_company_name_change);
+                                hideKeyboard();
                                 return;
                             }
                             showToast(R.string.error_text);
@@ -207,7 +208,8 @@ public class CompanyDetailFragment extends FragmentWithFragmentActivity {
         if (name.isEmpty()) {
             return true;
         }
-        return !name.matches("^[a-zA-Zа-яА-Я ]*$");
+        return !name.matches("^[a-zA-Zа-яА-Я ]*$")
+                || name.matches("^[ ]*$");
     }
 
     private String getEnteredName() {
