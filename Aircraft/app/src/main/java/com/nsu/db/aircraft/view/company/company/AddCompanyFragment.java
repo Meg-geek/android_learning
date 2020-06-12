@@ -1,15 +1,11 @@
 package com.nsu.db.aircraft.view.company.company;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.Toast;
-
-import androidx.fragment.app.Fragment;
 
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
@@ -19,13 +15,14 @@ import com.nsu.db.aircraft.api.GeneralResponse;
 import com.nsu.db.aircraft.api.Status;
 import com.nsu.db.aircraft.api.model.company.Company;
 import com.nsu.db.aircraft.network.NetworkService;
+import com.nsu.db.aircraft.view.FragmentWithFragmentActivity;
 
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
 
-public class AddCompanyFragment extends Fragment {
+public class AddCompanyFragment extends FragmentWithFragmentActivity {
     final static String WRONG_COMPANY_NAME_INPUT = "Неправильно введено название: " +
             "название состоит из букв русского или английского алфавита и пробелов";
     private final static String COMPANY_ALREADY_EXISTS_ERROR = "Предприятие с данным названием " +
@@ -77,17 +74,12 @@ public class AddCompanyFragment extends Fragment {
         });
     }
 
-    private void hideKeyboard() {
-        InputMethodManager imm = (InputMethodManager) getContext()
-                .getSystemService(Activity.INPUT_METHOD_SERVICE);
-        imm.hideSoftInputFromWindow(getView().getWindowToken(), 0);
-    }
-
     private void checkResponse(GeneralResponse<?> serverResponse) {
         if (serverResponse.getStatus().equals(Status.OK)) {
             Toast.makeText(getContext(), R.string.load_success, Toast.LENGTH_LONG)
                     .show();
             hideErrorsIfPresent();
+            startFragment(new CompanyFragment());
             return;
         }
         if (serverResponse.getCause().equals(ErrorCause.ALREADY_EXITS)) {
@@ -110,7 +102,8 @@ public class AddCompanyFragment extends Fragment {
         if (name.isEmpty()) {
             return true;
         }
-        return !name.matches("^[a-zA-Zа-яА-Я ]*$");
+        return !name.matches("^[a-zA-Zа-яА-Я ]*$")
+                || name.matches("^[ ]*$");
     }
 
     private String getEnteredName() {
