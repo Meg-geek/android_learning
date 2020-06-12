@@ -23,7 +23,10 @@ import java.util.List;
 public class FragmentWithFragmentActivity extends Fragment {
     protected final static String WRONG_NAME_INPUT = "Неправильно введено название: " +
             "название состоит из букв русского или английского алфавита и пробелов";
+    protected final static String INPUT_RULES = "Должно состоять из букв русского или " +
+            "английского алфавита и пробелов";
     private final static String REGEX_NAME = "^[a-zA-Zа-яА-Я ]*$";
+    private final static String WHITESPACES_REGEX = "^[ ]*$";
     protected FragmentActivity fragmentActivity;
 
     public FragmentWithFragmentActivity() {
@@ -79,7 +82,8 @@ public class FragmentWithFragmentActivity extends Fragment {
         if (name.isEmpty()) {
             return true;
         }
-        return !name.matches(REGEX_NAME);
+        return !name.matches(REGEX_NAME)
+                || name.matches(WHITESPACES_REGEX);
     }
 
     protected String getEnteredName(int textInputEditTextId) {

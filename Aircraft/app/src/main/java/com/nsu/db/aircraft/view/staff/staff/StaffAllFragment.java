@@ -56,6 +56,10 @@ public class StaffAllFragment extends FragmentWithFragmentActivity {
     private void setEmployeeList() {
         ListView employeesList = view.findViewById(R.id.staff_list_view);
         employeesList.setOnItemClickListener((parent, view1, position, id) -> {
+            if (getSelectedCategory().equals(SITE_MANAGER) ||
+                    getSelectedCategory().equals(GUILD_MANAGER)) {
+                return;
+            }
             if (position >= 0 && position < employees.size()) {
                 startFragment(new StaffDetailFragment(employees.get(position)));
             }
