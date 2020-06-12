@@ -89,7 +89,7 @@ public class GuildDetailFragment extends FragmentWithFragmentActivity {
     }
 
     private void setAddGuildButton(View view) {
-        Button addGuildButton = view.findViewById(R.id.button_add_brigade);
+        Button addGuildButton = view.findViewById(R.id.button_add_equipment);
         addGuildButton.setOnClickListener(v -> {
             hideKeyboard();
             if (areGuildFieldsCorrect(view)) {
@@ -389,7 +389,7 @@ public class GuildDetailFragment extends FragmentWithFragmentActivity {
         setVisibility(view, R.id.textView9, VISIBLE);
         setVisibility(view, R.id.guild_manager_spinner, VISIBLE);
 
-        setVisibility(view, R.id.button_add_brigade, INVISIBLE);
+        setVisibility(view, R.id.button_add_equipment, INVISIBLE);
         setVisibility(view, R.id.button_save_all_guild_changes, INVISIBLE);
         setVisibility(view, R.id.button_delete_detail_guild, VISIBLE);
     }
@@ -399,7 +399,7 @@ public class GuildDetailFragment extends FragmentWithFragmentActivity {
         setVisibility(view, R.id.textView9, INVISIBLE);
         setVisibility(view, R.id.guild_manager_spinner, INVISIBLE);
 
-        setVisibility(view, R.id.button_add_brigade, VISIBLE);
+        setVisibility(view, R.id.button_add_equipment, VISIBLE);
         setVisibility(view, R.id.button_save_all_guild_changes, INVISIBLE);
         setVisibility(view, R.id.button_delete_detail_guild, INVISIBLE);
     }

@@ -165,4 +165,10 @@
     <string name="labs">Лаборатории</string>
     <string name="testers">Испытатели</string>
     <string name="foreman">Бригадир</string>
+
+    <string name="show_all_equipment">Показать все оборудование</string>
+    <string name="add_equipment">Добавить оборудование</string>
+
+    <string name="range">Испытательная лаборатория</string>
+    <string name="save">Сохранить</string>
 </resources>
