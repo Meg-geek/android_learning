@@ -9,15 +9,18 @@ import com.nsu.db.aircraft.api.model.company.Guild;
 import java.util.List;
 
 import lombok.AllArgsConstructor;
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import static java.lang.String.join;
+import static java.lang.String.valueOf;
 import static java.util.Arrays.asList;
 
 @Getter
 @Setter
+@EqualsAndHashCode
 @NoArgsConstructor
 @AllArgsConstructor
 public class Product {
@@ -60,6 +63,9 @@ public class Product {
     @NonNull
     @Override
     public String toString() {
+        if (type == null) {
+            return join(" ", "изделие", valueOf(id));
+        }
         return join(" ", productCategory, type);
     }
 }

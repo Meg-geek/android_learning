@@ -17,6 +17,7 @@
         android:layout_alignParentEnd="true"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
+        android:layout_centerHorizontal="true"
         android:contentDescription="@string/accounting_menu_title"
         android:src="@drawable/accounting" />
 
@@ -33,7 +34,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/button_accounting_show_all"
-        android:layout_alignStart="@id/button_accounting_show_all"
         android:layout_centerHorizontal="true"
         android:paddingTop="16dp"
         android:paddingBottom="16dp"
