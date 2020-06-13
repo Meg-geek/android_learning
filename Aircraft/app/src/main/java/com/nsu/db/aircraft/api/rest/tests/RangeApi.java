@@ -17,6 +17,7 @@ import static com.nsu.db.aircraft.api.AircraftPath.ADD;
 import static com.nsu.db.aircraft.api.AircraftPath.APP;
 import static com.nsu.db.aircraft.api.AircraftPath.DELETE_BY_ID;
 import static com.nsu.db.aircraft.api.AircraftPath.GET_ALL;
+import static com.nsu.db.aircraft.api.AircraftPath.GET_BY_GUILD_ID;
 import static com.nsu.db.aircraft.api.AircraftPath.GET_BY_PRODUCT_ID;
 import static com.nsu.db.aircraft.api.AircraftPath.RANGE;
 import static com.nsu.db.aircraft.api.AircraftPath.TESTS;
@@ -37,4 +38,7 @@ public interface RangeApi {
 
     @PUT(APP + TESTS + RANGE + UPDATE)
     Call<GeneralResponse<Range>> update(@Body Range range);
+
+    @GET(APP + TESTS + RANGE + GET_BY_GUILD_ID)
+    Call<GeneralResponse<List<Range>>> getByGuildId(@Query("id") int id);
 }

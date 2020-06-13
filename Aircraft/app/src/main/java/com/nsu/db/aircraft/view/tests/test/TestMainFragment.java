@@ -5,12 +5,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import androidx.fragment.app.Fragment;
-
 import com.nsu.db.aircraft.R;
+import com.nsu.db.aircraft.view.FragmentWithFragmentActivity;
 
 
-public class TestMainFragment extends Fragment {
+public class TestMainFragment extends FragmentWithFragmentActivity {
 
     public TestMainFragment() {
         // Required empty public constructor
@@ -20,7 +19,10 @@ public class TestMainFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_test_main, container, false);
+        View view = inflater.inflate(R.layout.fragment_test_main, container, false);
+        setStartFragmentButton(view, R.id.button_show_all, new TestAllFragment());
+        setStartFragmentButton(view, R.id.button_add, new TestDetailFragment());
+        setStartFragmentButton(view, R.id.button_show_table, new TestTableFragment());
+        return view;
     }
 }

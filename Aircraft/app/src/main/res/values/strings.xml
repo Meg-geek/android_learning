@@ -178,4 +178,7 @@
     <string name="engine_amount">Количество двигателей</string>
     <string name="charge_power">Мощность заряда</string>
     <string name="product_parameter_rule">Параметр изделия должен быть больше 0</string>
+
+    <string name="tester">Испытатель</string>
+    <string name="enter_type">Введите тип</string>
 </resources>

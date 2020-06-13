@@ -66,6 +66,9 @@ public class Product {
         if (type == null) {
             return join(" ", "изделие", valueOf(id));
         }
+        if (productCategory == null) {
+            return join(" ", valueOf(id), type);
+        }
         return join(" ", productCategory, type);
     }
 }

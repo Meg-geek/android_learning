@@ -2,6 +2,7 @@ package com.nsu.db.aircraft.api.rest.tests;
 
 import com.nsu.db.aircraft.api.GeneralResponse;
 import com.nsu.db.aircraft.api.model.tests.Equipment;
+import com.nsu.db.aircraft.api.model.tests.Range;
 
 import java.util.List;
 
@@ -24,6 +25,7 @@ import static com.nsu.db.aircraft.api.AircraftPath.GET_BY_DATE_RANGE_HANG_GLIDER
 import static com.nsu.db.aircraft.api.AircraftPath.GET_BY_DATE_RANGE_HELICOPTERS;
 import static com.nsu.db.aircraft.api.AircraftPath.GET_BY_DATE_RANGE_PLANES;
 import static com.nsu.db.aircraft.api.AircraftPath.GET_BY_DATE_RANGE_ROCKETS;
+import static com.nsu.db.aircraft.api.AircraftPath.GET_BY_RANGE;
 import static com.nsu.db.aircraft.api.AircraftPath.TESTS;
 import static com.nsu.db.aircraft.api.AircraftPath.UPDATE;
 
@@ -76,4 +78,7 @@ public interface EquipmentApi {
             @Query("rangeId") int rangeId,
             @Query("beginDate") long beginDate,
             @Query("endDate") long endDate);
+
+    @PUT(APP + TESTS + EQUIPMENT + GET_BY_RANGE)
+    Call<GeneralResponse<List<Equipment>>> getByRange(@Body Range range);
 }
