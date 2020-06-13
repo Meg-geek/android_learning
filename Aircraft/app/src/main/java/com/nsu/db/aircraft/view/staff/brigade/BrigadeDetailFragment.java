@@ -95,7 +95,7 @@ public class BrigadeDetailFragment extends FragmentWithFragmentActivity {
         changeButton.setOnClickListener(v -> {
             setVisibility(view, R.id.button_save, VISIBLE);
             foremen = brigadeWorkers;
-            updateForemansSpinner();
+            updateForemenSpinner();
             sendSitesRequest();
             setEnabled(view.findViewById(R.id.sites_spinner), true);
             setEnabled(view.findViewById(R.id.foremans_spinner), true);
@@ -174,7 +174,7 @@ public class BrigadeDetailFragment extends FragmentWithFragmentActivity {
                             return;
                         }
                         foremen.add(foreman);
-                        updateForemansSpinner();
+                        updateForemenSpinner();
                     }
 
                     @Override
@@ -387,12 +387,12 @@ public class BrigadeDetailFragment extends FragmentWithFragmentActivity {
                             foremen.add(brigadeWorkers.get(key));
                         }
                     }
-                    updateForemansSpinner();
+                    updateForemenSpinner();
                 }
         );
     }
 
-    private void updateForemansSpinner() {
+    private void updateForemenSpinner() {
         Spinner spinner = view.findViewById(R.id.foremans_spinner);
         List<String> foremanNames = foremen.stream()
                 .map(Employee::toString)

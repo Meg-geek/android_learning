@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/range_detail"
     tools:context=".view.tests.range.RangeDetailFragment">
 
 
@@ -40,70 +41,53 @@
         app:layout_constraintTop_toBottomOf="@+id/textView18">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/name_edit_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/element_name" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
-        android:id="@+id/button4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
-        android:text="@string/guilds"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayout2" />
-
-    <Button
-        android:id="@+id/button5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
-        android:text="@string/change_guilds"
-        app:layout_constraintStart_toEndOf="@+id/button4"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayout2" />
-
-    <Button
-        android:id="@+id/button6"
+        android:id="@+id/button_add"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
         android:text="@string/add"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button4" />
+        app:layout_constraintTop_toBottomOf="@+id/guilds_list" />
 
     <Button
-        android:id="@+id/button7"
+        android:id="@+id/button_change"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
         android:text="@string/change"
-        app:layout_constraintStart_toEndOf="@+id/button6"
-        app:layout_constraintTop_toBottomOf="@+id/button5" />
+        app:layout_constraintStart_toEndOf="@+id/button_add"
+        app:layout_constraintTop_toBottomOf="@+id/guilds_list" />
 
     <Button
-        android:id="@+id/button8"
+        android:id="@+id/button_save"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
         android:text="@string/save_changes"
-        app:layout_constraintStart_toEndOf="@+id/button7"
-        app:layout_constraintTop_toBottomOf="@+id/button5" />
+        android:visibility="invisible"
+        app:layout_constraintStart_toEndOf="@+id/button_change"
+        app:layout_constraintTop_toBottomOf="@+id/guilds_list"
+        tools:visibility="invisible" />
 
     <Button
-        android:id="@+id/button9"
+        android:id="@+id/button_delete"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:text="@string/delete_element"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button7" />
+        app:layout_constraintTop_toBottomOf="@+id/button_change" />
 
     <Button
         android:id="@+id/button_products"
@@ -113,7 +97,7 @@
         android:layout_marginTop="8dp"
         android:text="@string/tested_products"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button9" />
+        app:layout_constraintTop_toBottomOf="@+id/button_delete" />
 
     <Button
         android:id="@+id/button_equipment"
@@ -134,5 +118,29 @@
         android:text="@string/testers"
         app:layout_constraintStart_toEndOf="@+id/button_equipment"
         app:layout_constraintTop_toBottomOf="@+id/button_products" />
+
+    <TextView
+        android:id="@+id/textView44"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/guilds"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayout2" />
+
+    <ListView
+        android:id="@+id/guilds_list"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="300dp"
+        android:choiceMode="multipleChoice"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView44" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

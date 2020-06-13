@@ -93,4 +93,6 @@ public class AircraftPath {
     public static final String GET_FOREMAN = "/get-foreman";
 
     public static final String GET_BY_BRIGADE_ID = "/get-by-brigade-id";
+    public static final String TEST = "/test";
+    public static final String CHANGE_GUILDS = "/change_guilds";
 }

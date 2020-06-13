@@ -171,4 +171,7 @@
 
     <string name="range">Испытательная лаборатория</string>
     <string name="save">Сохранить</string>
+
+    <string name="show_all_tests">Показать все испытания</string>
+    <string name="add_test">Добавить испытание</string>
 </resources>
