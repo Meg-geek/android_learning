@@ -261,14 +261,17 @@ public class GuildDetailFragment extends FragmentWithFragmentActivity {
     }
 
     private void setChangeButton(View view) {
-        setEnabledInputEditText(view, R.id.detail_guild_name, true);
-        setVisibility(view, R.id.button_save_all_guild_changes, VISIBLE);
-        Spinner companySpinner = view.findViewById(R.id.companies_spinner);
-        companySpinner.setEnabled(true);
-        Spinner managerSpinner = view.findViewById(R.id.guild_manager_spinner);
-        managerSpinner.setEnabled(true);
-        loadFreeManagers();
+        Button changeButton = view.findViewById(R.id.button_change_guild_details);
         sendCompaniesRequest(view);
+        changeButton.setOnClickListener(v -> {
+            loadFreeManagers();
+            setVisibility(view, R.id.button_save_all_guild_changes, VISIBLE);
+            setEnabledInputEditText(view, R.id.detail_guild_name, true);
+            Spinner companySpinner = view.findViewById(R.id.companies_spinner);
+            companySpinner.setEnabled(true);
+            Spinner managerSpinner = view.findViewById(R.id.guild_manager_spinner);
+            managerSpinner.setEnabled(true);
+        });
     }
 
     private void loadFreeManagers() {

@@ -163,6 +163,10 @@ public class EquipmentDetailFragment extends FragmentWithFragmentActivity {
     private void setAddButton() {
         Button addButton = view.findViewById(R.id.button_add);
         addButton.setOnClickListener(v -> {
+            if (getEnteredName(R.id.type_edit_text).isEmpty()) {
+                showText(R.string.enter_type);
+                return;
+            }
             sendAddRequest();
             hideKeyboard();
         });
