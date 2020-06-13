@@ -174,4 +174,8 @@
 
     <string name="show_all_tests">Показать все испытания</string>
     <string name="add_test">Добавить испытание</string>
+
+    <string name="engine_amount">Количество двигателей</string>
+    <string name="charge_power">Мощность заряда</string>
+    <string name="product_parameter_rule">Параметр изделия должен быть больше 0</string>
 </resources>

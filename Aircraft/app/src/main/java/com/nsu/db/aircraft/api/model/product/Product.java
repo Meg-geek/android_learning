@@ -28,6 +28,8 @@ public class Product {
     public final static String ALL = "все";
     public static final List<String> categoriesList =
             asList(PLANE, ROCKET, HELICOPTER, HANG_GLIDER, ALL);
+    public static final List<String> onlyCategories =
+            asList(PLANE, ROCKET, HELICOPTER, HANG_GLIDER);
 
     private String productCategory;
 

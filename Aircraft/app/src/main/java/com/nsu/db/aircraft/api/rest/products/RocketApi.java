@@ -8,9 +8,11 @@ import java.util.List;
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
+import retrofit2.http.POST;
 import retrofit2.http.PUT;
 import retrofit2.http.Query;
 
+import static com.nsu.db.aircraft.api.AircraftPath.ADD;
 import static com.nsu.db.aircraft.api.AircraftPath.APP;
 import static com.nsu.db.aircraft.api.AircraftPath.GET_ALL;
 import static com.nsu.db.aircraft.api.AircraftPath.GET_BY_DATE_COMPANY;
@@ -27,6 +29,9 @@ import static com.nsu.db.aircraft.api.AircraftPath.ROCKET;
 import static com.nsu.db.aircraft.api.AircraftPath.UPDATE;
 
 public interface RocketApi {
+    @POST(APP + PRODUCTS + ROCKET + ADD)
+    Call<GeneralResponse> add(@Body Product product);
+
     @GET(APP + PRODUCTS + ROCKET + GET_ALL)
     Call<GeneralResponse<List<Product>>> getAll();
 
